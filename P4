@@ -1,0 +1,19 @@
+# Update and install unixODBC + odbcinst first
+!apt-get update -y
+!apt-get install -y unixodbc unixodbc-dev unixodbc-bin libgssapi-krb5-2 curl
+
+# Add Microsoft repo
+!curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+!curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | tee /etc/apt/sources.list.d/msprod.list
+
+# Update again
+!apt-get update -y
+
+# Fix broken dependencies if needed
+!apt --fix-broken install -y
+
+# Install MS SQL ODBC driver + tools
+!ACCEPT_EULA=Y apt-get install -y msodbcsql17 mssql-tools
+
+# Install Python dependencies
+!pip install pyodbc sqlalchemy
