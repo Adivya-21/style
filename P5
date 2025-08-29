@@ -1,0 +1,19 @@
+# Clean old attempts
+!apt-get remove -y msodbcsql17 msodbcsql18
+!apt-get update -y
+
+# Install dependencies
+!apt-get install -y unixodbc unixodbc-dev unixodbc-bin libgssapi-krb5-2 curl
+
+# Add Microsoft repo for Ubuntu 22.04 (jammy)
+!curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+!curl https://packages.microsoft.com/config/ubuntu/22.04/prod.list | tee /etc/apt/sources.list.d/msprod.list
+
+# Update repo list
+!apt-get update -y
+
+# Install ODBC driver (latest = 18)
+!ACCEPT_EULA=Y apt-get install -y msodbcsql18 mssql-tools
+
+# Install Python packages
+!pip install pyodbc sqlalchemy
