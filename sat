@@ -1,0 +1,30 @@
+from sqlalchemy import create_engine, Table, Column, Integer, String, MetaData
+import urllib
+
+params = urllib.parse.quote_plus(
+    "Driver={ODBC Driver 17 for SQL Server};"
+    "Server=DESKTOP-6B6KT5K;"
+    "Database=CompanyDB;"
+    "Trusted_Connection=yes;"
+)
+
+
+engine = create_engine(f"mssql+pyodbc:///?odbc_connect={params}")
+metadata = MetaData()
+
+
+employees = Table(
+    "employees", metadata,
+    Column("id", Integer, primary_key = True, autoincrement = True),    
+    Column("name", String(50)),
+    Column("salary", Integer)
+)
+metadata.create_all(engine)
+with engine.begin() as conn:
+    conn.execute(employees.insert().values(name = "Charlie", salary = 82000))
+
+
+with engine.connect() as conn:
+    result = conn.execute(employees.select())
+    for row in result:
+        print(row)
