@@ -1,0 +1,2 @@
+cd C:\Users\user\Downloads\spark-4.0.0-bin-hadoop3\bin
+.\pyspark.cmd
