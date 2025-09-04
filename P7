@@ -1,0 +1,9 @@
+https://github.com/steveloughran/winutils
+
+C:\hadoop\bin
+
+HADOOP_HOME = C:\hadoop
+
+%HADOOP_HOME%\bin
+
+pyspark
