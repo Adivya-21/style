@@ -1,0 +1,5 @@
+import requests
+import pandas as pd from io import Stringlo def fetch datal):
+url = "https://people.sc.fsu.edu/*iburkardt/data/csv/airtravel.csv"
+response = requests.get (url)
+if response status code |= 200:
