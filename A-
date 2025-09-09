@@ -1,0 +1,19 @@
+import pandas as pd from sqlalchemy import create_engine
+5
+6
+8
+def load_to_mysql (df: pd.DataFrame,
+user = "root",
+password = "root",
+host = "mysql",
+port = 3306,
+database = "eti_db"):
+10
+11
+12
+13
+engine = create_engine(f"mysq1+pymysq]://{user}: (password)@{host}: {port}/{database}")
+14
+15
+df to_sql ("air_travel", consengine, if_exists="replace", index=False)
+print ("Data Laoded successfully into MySOL database '{database) (table:lair_travel)")
