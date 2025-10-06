@@ -1,28 +1,26 @@
-$$$ BCL_Info
+$$$ 18.dbo.CommandLog
 
 db_name = "my_database"
-table_name = "bcl_info"
+table_name = "my_table"
 
-spark.sql(f"""
+"spark.sql(f"""
 CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
-    BCL_InfoId INT NOT NULL,
-    BCL_PriorityId INT,
-    FlightSeq STRING NOT NULL,
-    ULD STRING NOT NULL,
-    Lcode STRING,
-    BreakDown CHAR(1) NOT NULL,
-    Manager STRING,
-    BDAgent STRING,
-    WHAgent STRING,
-    StartDate STRING,
-    StartTime STRING,
-    EndDate STRING,
-    EndTime STRING,
-    CreatedBy STRING NOT NULL,
-    CreateDate TIMESTAMP NOT NULL,
-    Status TINYINT,
-    CompletedTime TIMESTAMP,
-    CompletedBy STRING,
-    CONSTRAINT pk_BCL_InfoId PRIMARY KEY (BCL_InfoId)
+    ID INT NOT NULL PRIMARY KEY,
+    DatabaseName STRING,
+    SchemaName STRING,
+    ObjectName STRING,
+    ObjectType STRING,
+    IndexName STRING,
+    IndexType INT,
+    StatisticsName STRING,
+    PartitionNumber INT,
+    ExtendedInfo STRING,
+    Command STRING NOT NULL,
+    CommandType STRING NOT NULL,
+    StartTime TIMESTAMP NOT NULL,
+    EndTime TIMESTAMP,
+    ErrorNumber INT,
+    ErrorMessage STRING,
+CONSTRAINT pk_ID PRIMARY KEY (ID)
 )
 """)
