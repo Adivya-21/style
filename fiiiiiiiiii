@@ -1,0 +1,1286 @@
+# ------------------- Table: BCL_ItemLocation -------------------
+db_name = "my_database" 
+table_name = "BCL_ItemLocation"
+spark.sql(f""" CREATE TABLE IF NOT EXISTS {db_name}.{table_name}(
+BCL_ItemLocationId INT NOT NULL,
+BCL_ItemId INT NOT NULL,
+Pieces INT NOT NULL,
+Location STRING NOT NULL, 
+WHConfirm STRING, 
+WHcfTime TIMESTAMP,
+DlvPieces INT,
+InputType STRING, 
+CreatedBy STRING NOT NULL,
+CreateDate TIMESTAMP NOT NULL, 
+LOCXmlSent STRING, XmlLogID INT,
+DLVXmlSent STRING, 
+DLVXmlLogID INT,
+DlvAgent STRING,
+DlvLogSeq INT,
+CONSTRAINT pk_BCL_ItemLocationId PRIMARY KEY (BCL_ItemLocationId)
+)
+""")
+
+# ------------------- Table: BI_design -------------------
+db_name = "my_database"
+table_name = "BI_design"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    num INT NOT NULL,
+    Ccode STRING,
+    Bcode STRING,
+    CONSTRAINT pk_BI_design PRIMARY KEY (num)
+)
+""")
+
+# ------------------- Table: billing -------------------
+db_name = "my_database"
+table_name = "billing"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    bpID INT NOT NULL,
+    fltDate TIMESTAMP,
+    Lcode STRING,
+    Ccode STRING NOT NULL,
+    flightno STRING,
+    ftype STRING,
+    fdescr STRING,
+    totalAWB INT,
+    revAWB INT,
+    LooseTon DECIMAL(16,2),
+    LooseTon_k DECIMAL(16,2),
+    BUPTon DECIMAL(16,2),
+    BUPTon_k DECIMAL(16,2),
+    totalTon DECIMAL(16,2),
+    totalTon_k DECIMAL(16,2),
+    MDP DECIMAL(16,2),
+    LD7 DECIMAL(16,2),
+    LD3 DECIMAL(16,2),
+    LD2 DECIMAL(16,2),
+    LD8 DECIMAL(16,2),
+    totalBUP DECIMAL(16,2),
+    impMail DECIMAL(16,2),
+    impMail_k DECIMAL(16,2),
+    tmode STRING,
+    note STRING,
+    SagtCode STRING,
+    Agtcode STRING,
+    ttime TIMESTAMP,
+    tstatus STRING,
+    note2 STRING,
+    cancel STRING,
+    CasRefNo INT,
+    CONSTRAINT pk_billing PRIMARY KEY (bpID, Ccode)
+)
+""")
+
+# ------------------- Table: bp_Billitem -------------------
+db_name = "my_database"
+table_name = "bp_Billitem"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    idnum INT NOT NULL,
+    bpID INT,
+    Ccode STRING,
+    Bcode STRING,
+    qty DECIMAL(16,2),
+    kilo DECIMAL(16,2),
+    price DECIMAL(16,2),
+    stotal DECIMAL(16,2),
+    CONSTRAINT pk_bp_Billitem PRIMARY KEY (idnum)
+)
+""")
+
+# ------------------- Table: CC_Billitem -------------------
+db_name = "my_database"
+table_name = "CC_Billitem"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    TransId STRING NOT NULL,
+    cashtbid INT,
+    Bcode STRING,
+    qty DECIMAL(9,2),
+    price DECIMAL(16,2),
+    stotal DECIMAL(16,2),
+    ePicPay DECIMAL(16,2),
+    WAmount DECIMAL(16,2),
+    WReason STRING,
+    Wreason_Desc STRING,
+    WAgent STRING,
+    Balance DECIMAL(16,2),
+    cartid INT,
+    mid INT,
+    Mpart STRING,
+    hid INT,
+    SSDate STRING,
+    TotalWeight DECIMAL(10,2),
+    ePicPayItemID STRING,
+    OCID STRING,
+    idnum INT NOT NULL,
+    ePicCharged DECIMAL(16,2),
+    ePicBalance DECIMAL(16,2),
+    comat INT,
+    CONSTRAINT pk_CC_Billitem PRIMARY KEY (TransId)
+)
+""")
+
+# ------------------- Table: CC_cashTB -------------------
+db_name = "my_database"
+table_name = "CC_cashTB"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    idnum INT NOT NULL,
+    TransId STRING,
+    Barcode STRING,
+    MID INT,
+    MPart STRING,
+    FID INT,
+    HID INT,
+    HPart STRING,
+    tmode STRING,
+    Lcode STRING,
+    Ccode STRING,
+    flightno STRING,
+    scac STRING,
+    awb STRING,
+    hbl STRING,
+    partial STRING,
+    comat INT,
+    pcs INT,
+    weight DECIMAL(16,2),
+    arvdate TIMESTAMP,
+    ssdate TIMESTAMP,
+    pkdate TIMESTAMP,
+    ISCchg DECIMAL(16,2),
+    storagetotal DECIMAL(16,2),
+    storagerate DECIMAL(16,2),
+    dos INT,
+    miniamt DECIMAL(16,2),
+    prepaid DECIMAL(16,2),
+    tPrice DECIMAL(16,2),
+    Loc_note STRING,
+    note STRING,
+    Aagtcode STRING,
+    Areason STRING,
+    AreasonDesc STRING,
+    Aamount DECIMAL(16,2),
+    dlvstatus STRING,
+    WHconfirm STRING,
+    WHCFTime TIMESTAMP,
+    exception STRING,
+    Aitem STRING,
+    PayReceiptXmlsent STRING,
+    PayXmlsent STRING,
+    XmlLogID INT,
+    WHagent STRING,
+    TotalDiscPcs INT,
+    Commodity STRING,
+    ResultCd STRING,
+    FlightSeq INT,
+    DlvStartTime TIMESTAMP,
+    WHDelivered INT,
+    TTNLastSentTime TIMESTAMP,
+    Reprocess INT,
+    Reset INT,
+    CONSTRAINT pk_CC_cashTB PRIMARY KEY (idnum)
+)
+""")
+
+# ------------------- Table: CC_TransInfo -------------------
+db_name = "my_database"
+table_name = "CC_TransInfo"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    TransId STRING NOT NULL,
+    Lcode STRING,
+    Ccode STRING,
+    ScanID STRING,
+    tmode STRING,
+    trucking STRING,
+    trucker STRING,
+    trucker2 STRING,
+    idtype STRING,
+    idtype2 STRING,
+    tidnum STRING,
+    tidnum2 STRING,
+    dockno STRING,
+    tPrice DECIMAL(16,2),
+    paynote STRING,
+    ttime TIMESTAMP,
+    Pagtcode STRING,
+    tprepaid DECIMAL(16,2),
+    tAamount DECIMAL(16,2),
+    tstatus STRING,
+    ISCTotal DECIMAL(16,2),
+    StorageTotal DECIMAL(16,2),
+    MiscTotal DECIMAL(16,2),
+    SurChargeTotal DECIMAL(16,2),
+    dstatus STRING,
+    dAgent STRING,
+    dtime TIMESTAMP,
+    Seq INT NOT NULL,
+    PayXmlsent STRING,
+    PayReceiptXmlsent STRING,
+    XmlLogID INT,
+    DAXmlsent STRING,
+    DAXmlLogID INT,
+    FilePath STRING,
+    FilePath2 STRING,
+    isApplied STRING,
+    version INT,
+    DlvStartTime TIMESTAMP,
+    VTID STRING,
+    DriverPhoneNo STRING,
+    VehicleUpdate INT,
+    BookingID STRING,
+    Reprocess INT,
+    CONSTRAINT pk_CC_TransInfo PRIMARY KEY (TransId)
+)
+""")
+
+# ------------------- Table: Customer -------------------
+db_name = "my_database"
+table_name = "Customer"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    idnum INT NOT NULL,
+    Acode STRING,
+    GPnum STRING,
+    Ccode STRING,
+    cname STRING,
+    scac STRING,
+    scac2 STRING,
+    CompId STRING,
+    Lcode STRING,
+    email STRING,
+    sagent STRING,
+    discash STRING,
+    credit STRING,
+    PFcode STRING,
+    wunit STRING,
+    astatus INT,
+    defcust INT,
+    Message INT,
+    AMS INT,
+    Giveback INT,
+    eFreight INT NOT NULL,
+    CPIDate TIMESTAMP,
+    TermDate TIMESTAMP,
+    PCcode STRING,
+    BLStartDate TIMESTAMP,
+    Carrier STRING,
+    Carrier2 STRING,
+    SectorCode STRING,
+    Ccard STRING,
+    CCPayable INT,
+    Payable INT NOT NULL,
+    Tracking INT NOT NULL,
+    Certificate INT NOT NULL,
+    PayTo STRING,
+    ContactNo STRING,
+    CollectChg STRING,
+    MReview INT NOT NULL,
+    FirmsCode STRING,
+    ContractNo STRING,
+    CreatedDate TIMESTAMP,
+    BillCcode STRING,
+    ShipCcode STRING,
+    CustomerNo STRING,
+    BillCcode_Old STRING,
+    ShipCcode_Old STRING,
+    CustomerNo_Old STRING,
+    BillTo STRING,
+    ShipTo STRING,
+    SoldTo STRING,
+    eScreenInsertCondition INT,
+    eScreenStartDate TIMESTAMP,
+    SAPname STRING,
+    BillingStatus INT,
+    LegacyCompID STRING,
+    FFMDecimal INT,
+    SHC INT,
+    FOH STRING,
+    Number_DP INT,
+    FWB_Logic INT,
+    RemoveDiscrepancies INT,
+    EU_Logic INT,
+    RCSonFWB INT,
+    RemoveDimsonFWB INT,
+    RCSManual STRING,
+    SendEHC INT,
+    AddLbsToPalletTag INT,
+    PartialStorage INT,
+    AddNetTareWeightToPalletTag INT,
+    VolumeCode STRING,
+    MiscDetail INT NOT NULL,
+    CONSTRAINT pk_Customer PRIMARY KEY (idnum)
+)
+""")
+# ------------------- Table: EDI_Msg -------------------
+db_name = "my_database"
+table_name = "EDI_Msg"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    idnum INT NOT NULL,
+    queueId INT NOT NULL,
+    Carrier STRING NOT NULL,
+    Lcode STRING NOT NULL,
+    Ccode STRING NOT NULL,
+    MID INT,
+    FlightSeq INT,
+    FlightNo STRING,
+    MsgAddress STRING NOT NULL,
+    MsgVersion INT,
+    MsgType STRING NOT NULL,
+    subMsgType STRING,
+    MsgBody STRING,
+    Remark STRING,
+    SendDate TIMESTAMP,
+    SendBy STRING,
+    ResendDate TIMESTAMP,
+    ResendBy STRING,
+    ResendYN STRING
+)
+""")
+
+# ------------------- Table: EDI_Msg_Queue -------------------
+db_name = "my_database"
+table_name = "EDI_Msg_Queue"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    iid INT NOT NULL,
+    MsgType STRING NOT NULL,
+    subMsgType STRING,
+    Carrier STRING NOT NULL,
+    Lcode STRING NOT NULL,
+    Ccode STRING NOT NULL,
+    MID INT,
+    HID INT,
+    RefID INT,
+    FlightSeq DECIMAL(9,0),
+    FlightNo STRING,
+    Status STRING NOT NULL,
+    ResendYN STRING,
+    ErrorMsg STRING,
+    Createdby STRING,
+    CreatedDate TIMESTAMP NOT NULL,
+    DlvLogSeq INT,
+    AnSeq INT,
+    tmode STRING,
+    EDIAddressBook INT,
+    CustomerId STRING,
+    MsgBody_SITAfreeMSG STRING,
+    MsgAddress_SITAfreeMSG STRING,
+    RTFInputType STRING,
+    SentDate TIMESTAMP
+)
+""")
+
+# ------------------- Table: ePic_CamDetail -------------------
+db_name = "my_database"
+table_name = "ePic_CamDetail"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    fileID INT NOT NULL,
+    infoId INT NOT NULL,
+    fName STRING NOT NULL,
+    fSize DECIMAL(12,0),
+    fSeq INT,
+    fPath STRING,
+    CamAgt STRING NOT NULL,
+    CamTime TIMESTAMP NOT NULL
+)
+""")
+
+# ------------------- Table: ePic_CamInfo -------------------
+db_name = "my_database"
+table_name = "ePic_CamInfo"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    idnum INT NOT NULL,
+    Ttype TINYINT NOT NULL,
+    MID INT,
+    MPart STRING,
+    HID INT,
+    CashTbId INT,
+    ULDId INT,
+    ULD STRING,
+    FlightSeq DECIMAL(9,0),
+    ReqAgt STRING NOT NULL,
+    ReqTime TIMESTAMP NOT NULL,
+    Lcode STRING,
+    Ccode STRING,
+    Prefix STRING,
+    AWB STRING,
+    Category STRING,
+    Complete STRING,
+    CamAgt STRING,
+    CamTime TIMESTAMP,
+    Type STRING
+)
+""")
+
+# ------------------- Table: ePic_DLV_Log -------------------
+db_name = "my_database"
+table_name = "ePic_DLV_Log"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    Seq INT NOT NULL,
+    CashTBId INT,
+    TransId STRING,
+    MID INT,
+    HID INT,
+    MPart STRING,
+    ResultCd INT,
+    Pcs INT,
+    TotalPcs INT,
+    ActionName STRING,
+    CodeName STRING,
+    ExceptionDesc STRING,
+    CreatedBy STRING,
+    CreatedDate TIMESTAMP,
+    DLVXmlSent STRING,
+    DLVXmlLogId INT,
+    Mode STRING,
+    Lcode STRING,
+    VTID STRING,
+    VerifyAgt STRING,
+    Reprocess INT
+)
+""")
+
+# ------------------- Table: ePic_FIW_Time -------------------
+db_name = "my_database"
+table_name = "ePic_FIW_Time"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    idnum INT NOT NULL,
+    ULD STRING NOT NULL,
+    FlightSeq INT NOT NULL,
+    FIWDate TIMESTAMP
+)
+""")
+
+# ------------------- Table: ePic_FlightMaster -------------------
+db_name = "my_database"
+table_name = "ePic_FlightMaster"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    FID INT NOT NULL,
+    MID INT NOT NULL,
+    MPart STRING,
+    Origin STRING,
+    FinalDest STRING,
+    FlightDate TIMESTAMP,
+    ArrivalDate TIMESTAMP NOT NULL,
+    AirlineCode STRING,
+    AWB STRING,
+    FlightNo STRING NOT NULL,
+    ULD STRING,
+    OnPCS INT NOT NULL,
+    OnWeight DOUBLE NOT NULL,
+    Partial STRING NOT NULL,
+    Lcode STRING,
+    Ccode STRING,
+    FlightSeq DECIMAL(9,0),
+    FSeqFlag INT,
+    Registration STRING,
+    PayStatus STRING,
+    DlvStatus STRING,
+    DlvDate TIMESTAMP,
+    StatusCode STRING,
+    MsgToCust STRING,
+    CreateDate TIMESTAMP NOT NULL,
+    CreatedBy STRING,
+    MsgID DECIMAL(18,0),
+    Inputtype STRING,
+    ModifiedDate TIMESTAMP,
+    ModifiedBy STRING,
+    VolAmt DECIMAL(10,2)
+)
+""")
+
+# ------------------- Table: ePic_House2 -------------------
+db_name = "my_database"
+table_name = "ePic_House2"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    MID INT NOT NULL,
+    HID INT NOT NULL,
+    Prefix STRING,
+    AWB STRING,
+    HAWB STRING NOT NULL,
+    PCS INT NOT NULL,
+    Weight DOUBLE NOT NULL,
+    Shipper STRING,
+    CNEE STRING,
+    CneStreet STRING,
+    CnePlace STRING,
+    CneState STRING,
+    CnePostal STRING,
+    CneCont STRING,
+    Agent STRING,
+    Commodity STRING,
+    PayStatus STRING,
+    DlvStatus STRING,
+    CBPStatus STRING,
+    InputType STRING,
+    CreateDate TIMESTAMP NOT NULL,
+    CreatedBy STRING,
+    MsgID DECIMAL(18,0),
+    Origin STRING,
+    Dest STRING,
+    SHC STRING,
+    TXT STRING,
+    ShpStreet STRING,
+    ShpPlace STRING,
+    ShpState STRING,
+    ShpPostal STRING,
+    ShpCont STRING,
+    FWBMID INT,
+    ModifiedDate TIMESTAMP,
+    ModifiedBy STRING,
+    SHC2 STRING,
+    SHC3 STRING,
+    SHC4 STRING,
+    SHC5 STRING,
+    SHC6 STRING,
+    SHC7 STRING,
+    SHC8 STRING,
+    SHC9 STRING
+)
+""")
+
+# ------------------- Table: ePic_Master2 -------------------
+db_name = "my_database"
+table_name = "ePic_Master2"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    MID INT NOT NULL,
+    Prefix STRING NOT NULL,
+    AWB STRING NOT NULL,
+    ULD STRING,
+    PCS INT NOT NULL,
+    Weight DECIMAL(10,2) NOT NULL,
+    Shipper STRING,
+    ShpStreet STRING,
+    ShpPlace STRING,
+    ShpState STRING,
+    ShpPostal STRING,
+    ShpCont STRING,
+    Lcode STRING,
+    OriginPortCd STRING,
+    Cnee STRING,
+    CneStreet STRING,
+    CnePlace STRING,
+    CneState STRING,
+    CnePostal STRING,
+    CneCont STRING,
+    DestinationPortCd STRING,
+    Agent STRING,
+    Ng STRING,
+    Nc STRING,
+    Commodity STRING,
+    FirmsCode STRING,
+    Payable STRING,
+    PayStatus STRING,
+    DlvStatus STRING,
+    CBPStatus STRING,
+    TransferTo STRING,
+    TransferDate TIMESTAMP,
+    InputType STRING,
+    CreateDate TIMESTAMP NOT NULL,
+    MsgID DECIMAL(18,0),
+    Ccode STRING,
+    CneeCode STRING,
+    CneeCode1 STRING,
+    WHTransfer STRING,
+    CarrierCertPrint TIMESTAMP,
+    SHC STRING,
+    SHC2 STRING,
+    SHC3 STRING,
+    SHC4 STRING,
+    SHC5 STRING,
+    CVD STRING,
+    COL STRING,
+    OTH STRING,
+    OSI STRING,
+    NFCneeCode STRING,
+    ModifiedDate TIMESTAMP,
+    SHC6 STRING,
+    SHC7 STRING,
+    SHC8 STRING,
+    SHC9 STRING,
+    IsCopied INT,
+    AgentABCode STRING,
+    AgentCode STRING,
+    AgentCassAddr STRING,
+    AgentPartId STRING,
+    AgentName STRING,
+    AgentAddr STRING,
+    AgentAddr2 STRING,
+    AgentCity STRING,
+    AgentState STRING,
+    AgentCountry STRING,
+    AgentZipcode STRING,
+    AgentAcode STRING,
+    AgentIsCass STRING,
+    AgentTel STRING,
+    NfyName STRING,
+    NfyAddr STRING,
+    NfyPlace STRING,
+    NfyState STRING,
+    NfyCountry STRING,
+    NfyZipcode STRING,
+    NfyContact STRING,
+    NfyTel STRING,
+    ModifiedBy STRING,
+    CreatedBy STRING,
+    OPIName STRING,
+    OPIAirportCd1 STRING,
+    OPIFuncDesignator STRING,
+    OPICompDesignator STRING,
+    OPIFileRef STRING,
+    OPIParticipantId STRING,
+    OPIParticipantCd STRING,
+    OPIAirportCd2 STRING,
+    RTGAirportCd1 STRING,
+    RTGCarrierCd1 STRING,
+    RTGAirportCd2 STRING,
+    RTGCarrierCd2 STRING,
+    RTGAirportCd3 STRING,
+    RTGCarrierCd3 STRING,
+    s_accountnum STRING,
+    a_accountnum STRING,
+    c_accountnum STRING,
+    FWBMsgID DECIMAL(18,0),
+    ChargeableWeight DECIMAL(18,2),
+    VolAmt DECIMAL(10,2),
+    WTVAL STRING,
+    WTVAL2 STRING,
+    WTVAL3 STRING,
+    SanctionedStatus INT
+)
+""")
+
+# ------------------- Table: ePic_masterCode -------------------
+db_name = "my_database"
+table_name = "ePic_masterCode"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    code_Id INT NOT NULL,
+    codeCategory STRING NOT NULL,
+    ApplName STRING,
+    ModuleName STRING,
+    codeName STRING NOT NULL,
+    displayName STRING,
+    codeRemark STRING,
+    ActiveYN STRING NOT NULL,
+    Mandatory STRING,
+    CreatedDate TIMESTAMP NOT NULL,
+    CreatedBy STRING,
+    ModifiedDate TIMESTAMP,
+    ModifiedBy STRING
+)
+""")
+# ------------------- Table: ePic_PayItem -------------------
+db_name = "my_database"
+table_name = "ePic_PayItem"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    ItemID INT NOT NULL,
+    PayInfoId INT,
+    Barcode STRING,
+    MID INT,
+    MPart STRING,
+    HID INT,
+    HPart STRING,
+    FID INT,
+    Lcode STRING,
+    Ccode STRING,
+    PayItem STRING,
+    qty DECIMAL(9,2),
+    Amount DOUBLE,
+    PickupDate TIMESTAMP,
+    StorageRate DOUBLE,
+    StorageDays INT,
+    StorageMin DOUBLE,
+    Status STRING,
+    CreateDate TIMESTAMP,
+    ReferenceNo STRING,
+    RefundID INT,
+    CompId STRING,
+    XmlSent STRING,
+    XmlLogID INT,
+    CheckInId INT,
+    CCTransID STRING,
+    Type STRING,
+    LegacyCompID STRING
+)
+""")
+
+# ------------------- Table: ePic_RefundRequest -------------------
+table_name = "ePic_RefundRequest"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    idnum INT NOT NULL,
+    PayInfoId INT NOT NULL,
+    ItemId INT NOT NULL,
+    CustomerId STRING NOT NULL,
+    UserId STRING NOT NULL,
+    UserAmount DOUBLE NOT NULL,
+    UserReason STRING NOT NULL,
+    UserRequestDate TIMESTAMP NOT NULL,
+    AgtCode STRING,
+    AgentAmount DOUBLE,
+    AgentNote STRING,
+    AgentRequestDate TIMESTAMP,
+    AccountAgtCode STRING,
+    AccountAmount DOUBLE,
+    AccountReason STRING,
+    AccountRequestDate TIMESTAMP,
+    RefundId INT,
+    Status INT NOT NULL,
+    FreeAWB INT
+)
+""")
+
+# ------------------- Table: Exp_BuildupDetail -------------------
+table_name = "Exp_BuildupDetail"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    BDUID INT NOT NULL,
+    ULDID INT,
+    MID INT,
+    BUPC INT,
+    Weight DECIMAL(10,2),
+    CreatedBy STRING,
+    CreatedDate TIMESTAMP,
+    ModifiedBy STRING,
+    ModifiedDate TIMESTAMP,
+    HasDG INT,
+    DG STRING,
+    ClassDivision STRING,
+    Group STRING,
+    Remarks STRING
+)
+""")
+
+# ------------------- Table: Exp_BuildupMaster -------------------
+table_name = "Exp_BuildupMaster"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    ULDID INT NOT NULL,
+    FlightSeq INT,
+    Lcode STRING,
+    UldPfx STRING,
+    UldMid STRING,
+    UldLst STRING,
+    Type INT,
+    DestCd STRING,
+    Weight DECIMAL(10,2),
+    HeightType INT,
+    Height DECIMAL(10,2),
+    Contour INT,
+    Overhang INT,
+    OverhangAfter DECIMAL(10,2),
+    OverhangForward DECIMAL(10,2),
+    OverhangLateralCenter DECIMAL(10,2),
+    OverhangLateralAisle DECIMAL(10,2),
+    Indent INT,
+    IndentAfter DECIMAL(10,2),
+    IndentForward DECIMAL(10,2),
+    IndentLateralCenter DECIMAL(10,2),
+    IndentLateralAisle DECIMAL(10,2),
+    Status INT,
+    BUNote STRING,
+    CreatedBy STRING,
+    CreatedDate TIMESTAMP,
+    ModifiedBy STRING,
+    ModifiedDate TIMESTAMP,
+    TareWeight DECIMAL(10,2),
+    SupWeight DECIMAL(10,2),
+    InputWay STRING,
+    AutoScale STRING
+)
+""")
+
+# ------------------- Table: Exp_DimWt -------------------
+table_name = "Exp_DimWt"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    DID INT NOT NULL,
+    MID INT NOT NULL,
+    Part STRING,
+    Prefix STRING NOT NULL,
+    AWB STRING NOT NULL,
+    Lenght DECIMAL(10,2),
+    Width DECIMAL(10,2),
+    Height DECIMAL(10,2),
+    Pcs INT NOT NULL,
+    VolWeight DECIMAL(10,2),
+    PcsWeight DECIMAL(10,2),
+    unit STRING,
+    CreatedDate TIMESTAMP NOT NULL,
+    CreatedBy STRING,
+    AutoScale STRING,
+    SignSeq INT,
+    TransId STRING
+)
+""")
+
+# ------------------- Table: Exp_DragSheet -------------------
+table_name = "Exp_DragSheet"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    Seq INT NOT NULL,
+    PrintSeq INT NOT NULL,
+    FlightSeq INT NOT NULL,
+    Lcode STRING,
+    ULDID INT,
+    ULDNo STRING,
+    DestCd STRING,
+    AWBCount INT,
+    Position STRING,
+    Weight DECIMAL(10,2),
+    Height STRING,
+    OverhangContour STRING,
+    DG STRING,
+    SHC STRING,
+    Remarks STRING,
+    status STRING,
+    CreatedBy STRING,
+    CreatedDate TIMESTAMP
+)
+""")
+
+# ------------------- Table: Exp_FlightMaster -------------------
+table_name = "Exp_FlightMaster"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    FID INT NOT NULL,
+    MID INT NOT NULL,
+    Part STRING,
+    Prefix STRING NOT NULL,
+    AWB STRING NOT NULL,
+    Acode STRING,
+    FlightNo STRING NOT NULL,
+    OriginCd STRING,
+    DestCd STRING,
+    FlightDate TIMESTAMP NOT NULL,
+    aFlightDate TIMESTAMP,
+    OnPCS INT,
+    OnWeight DECIMAL(10,2),
+    ULD STRING,
+    ULDID INT,
+    Partial STRING,
+    FlightSeq INT,
+    Status STRING,
+    CreatedDate TIMESTAMP NOT NULL,
+    CreatedBy STRING,
+    ModifiedDate TIMESTAMP,
+    ModifiedBy STRING,
+    ChangeFlight STRING,
+    BookedFlightNo STRING,
+    BookedFlightDate TIMESTAMP,
+    BookedPOU STRING,
+    BookedPC INT,
+    BookedWgt DECIMAL(10,2),
+    BookedPartial STRING,
+    BookedVolume DECIMAL(10,2),
+    MsgID DECIMAL(18,0),
+    Lcode STRING,
+    Ccode STRING,
+    InputType STRING,
+    AWBStatus STRING,
+    ScreenFtype STRING,
+    ReScreen STRING,
+    FRTRScreenFtype STRING
+)
+""")
+
+# ------------------- Table: Exp_FlightSeq -------------------
+table_name = "Exp_FlightSeq"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    FlightId INT NOT NULL,
+    Lcode STRING NOT NULL,
+    Acode STRING NOT NULL,
+    FlightNo STRING NOT NULL,
+    FlightDate TIMESTAMP NOT NULL,
+    FlightNote STRING,
+    ArrivalDate TIMESTAMP,
+    Origin STRING NOT NULL,
+    Destination STRING NOT NULL,
+    NFMSentDate TIMESTAMP,
+    FFMSentDate TIMESTAMP,
+    ActualDepDate TIMESTAMP,
+    ActualArrDate TIMESTAMP,
+    EstDepDate TIMESTAMP,
+    EstArrDate TIMESTAMP,
+    DayChange STRING,
+    MainMaxPcs TINYINT,
+    LowerMaxPcs TINYINT,
+    Ld3MaxPcs TINYINT,
+    Status TINYINT,
+    CreatedDate TIMESTAMP NOT NULL,
+    CreatedBy STRING,
+    LastModifiedDate TIMESTAMP,
+    LastModifiedBy STRING,
+    UWSSentDate TIMESTAMP,
+    Module STRING,
+    SecurityReviewedBy STRING,
+    SecurityReviewedDate TIMESTAMP
+)
+""")
+
+# ------------------- Table: Exp_House -------------------
+table_name = "Exp_House"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    HID INT NOT NULL,
+    MID INT NOT NULL,
+    Prefix STRING NOT NULL,
+    AWB STRING NOT NULL,
+    HAWB STRING NOT NULL,
+    Pcs INT NOT NULL,
+    SLAC INT,
+    Weight DECIMAL(10,2) NOT NULL,
+    Dest STRING,
+    Origin STRING,
+    CustomerId STRING,
+    Shipper STRING,
+    ShipperCode STRING,
+    ShpAddr STRING,
+    ShpAddr2 STRING,
+    ShpAddrCity STRING,
+    ShpAddrState STRING,
+    ShpAddrZipcode STRING,
+    ShpAddrCountry STRING,
+    ShpContact STRING,
+    ShpAddrTel STRING,
+    Cnee STRING,
+    CneeCode STRING,
+    CneeAddr STRING,
+    CneeAddr2 STRING,
+    CneeAddrCity STRING,
+    CneeAddrProvince STRING,
+    CneeAddrZipcode STRING,
+    CneeAddrCountry STRING,
+    CneeContact STRING,
+    CneeAddrTel STRING,
+    Commodity STRING,
+    SHC STRING,
+    SHC2 STRING,
+    SHC3 STRING,
+    SHC4 STRING,
+    SHC5 STRING,
+    SHC6 STRING,
+    SHC7 STRING,
+    SHC8 STRING,
+    SHC9 STRING,
+    AES STRING,
+    CreatedDate TIMESTAMP NOT NULL,
+    CreatedBy STRING,
+    ModifiedDate TIMESTAMP,
+    ModifiedBy STRING,
+    Currency STRING,
+    WTVAL STRING,
+    WTVAL2 STRING,
+    WTVAL3 STRING,
+    DVCarriage DECIMAL(10,2),
+    DVCustoms DECIMAL(10,2),
+    Insurance DECIMAL(10,2),
+    FWBMID INT,
+    MSGID INT,
+    FHLMsgValid INT,
+    SendFHLDate TIMESTAMP,
+    SendFHLBy STRING
+)
+""")
+
+# ------------------- Table: Exp_Master -------------------
+table_name = "Exp_Master"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    MID INT NOT NULL,
+    TransId STRING,
+    ShipType STRING NOT NULL,
+    Prefix STRING NOT NULL,
+    AWB STRING NOT NULL,
+    PCS INT,
+    Weight DECIMAL(16,3),
+    CWeight DECIMAL(16,3),
+    ChgWeight DECIMAL(16,3),
+    CustomerId STRING,
+    Shipper STRING,
+    ShipperCode STRING,
+    ShipperContact STRING,
+    ShipperTel STRING,
+    ShpAddr STRING,
+    ShpAddr2 STRING,
+    ShpAddrCity STRING,
+    ShpAddrState STRING,
+    ShpAddrZipcode STRING,
+    ShpAddrCountry STRING,
+    Cnee STRING,
+    CneeCode STRING,
+    CneeTel STRING,
+    CneeAddr STRING,
+    CneeAddr2 STRING,
+    CneeAddrCity STRING,
+    CneeAddrProvince STRING,
+    CneeAddrCountry STRING,
+    CneeAddrZipcode STRING,
+    Agent STRING,
+    AgentABCode STRING,
+    AgentCode STRING,
+    AgentCassAddr STRING,
+    AgentPartId STRING,
+    AgentName STRING,
+    AgentAddr STRING,
+    AgentAddr2 STRING,
+    AgentCity STRING,
+    AgentState STRING,
+    AgentCountry STRING,
+    AgentZipcode STRING,
+    AgentAcode STRING,
+    AgentIsCass STRING,
+    AgentTel STRING,
+    Lcode STRING NOT NULL,
+    Ccode STRING,
+    OriginCd STRING,
+    DestCd STRING,
+    AwbPOU STRING,
+    Commodity STRING,
+    BUPct INT,
+    SHC STRING,
+    SHC2 STRING,
+    SHC3 STRING,
+    SHC4 STRING,
+    SHC5 STRING,
+    SHCNote STRING,
+    Status STRING,
+    Worker STRING,
+    InputType STRING,
+    PrintedTally TIMESTAMP,
+    PrintedBy STRING,
+    HasDoc STRING NOT NULL,
+    IsContactShipper STRING,
+    Priority STRING NOT NULL,
+    AWBNote STRING,
+    BuildUpNote STRING,
+    DG STRING,
+    ClassDivision STRING,
+    ITNNo STRING,
+    IACnum STRING,
+    IACValid STRING,
+    Currency STRING,
+    WTVAL STRING,
+    WTVAL2 STRING,
+    WTVAL3 STRING,
+    DVCarriage DECIMAL(10,2),
+    DVCustoms DECIMAL(10,2),
+    Insurance DECIMAL(10,2),
+    SendFWBDate TIMESTAMP,
+    SendFWBBy STRING,
+    AccptComplete STRING NOT NULL,
+    CreatedDate TIMESTAMP NOT NULL,
+    CreatedBy STRING NOT NULL,
+    ProcessedDate TIMESTAMP,
+    ProcessedBy STRING,
+    ModifiedDate TIMESTAMP,
+    ModifiedBy STRING,
+    BookedPC INT,
+    BookedWgt DECIMAL(10,2),
+    BookedChgWeight DECIMAL(10,2),
+    BookedDate TIMESTAMP,
+    HasDG INT,
+    FBL INT,
+    CheckInId INT,
+    CCSFnum STRING,
+    CCSFValid STRING,
+    IsCopied INT,
+    CneeContact STRING,
+    AgentAccountNum STRING,
+    MsgID INT,
+    SHC6 STRING,
+    SHC7 STRING,
+    SHC8 STRING,
+    SHC9 STRING,
+    NfyName STRING,
+    NfyAddr STRING,
+    NfyPlace STRING,
+    NfyState STRING,
+    NfyCountry STRING,
+    NfyZipcode STRING,
+    NfyContact STRING,
+    NfyTel STRING,
+    PPDTotalWeight DECIMAL(10,2),
+    PPDValuation DECIMAL(10,2),
+    PPDTaxes DECIMAL(10,2),
+    PPDDueAgent DECIMAL(10,2),
+    PPDDueCarrier DECIMAL(10,2),
+    PPDTotal DECIMAL(10,2),
+    COLTotalWeight DECIMAL(10,2),
+    COLValuation DECIMAL(10,2),
+    COLTaxes DECIMAL(10,2),
+    COLDueAgent DECIMAL(10,2),
+    COLDueCarrier DECIMAL(10,2),
+    COLTotal DECIMAL(10,2),
+    OPIName STRING,
+    OPIAirportCd1 STRING,
+    OPIFuncDesignator STRING,
+    OPICompDesignator STRING,
+    OPIFileRef STRING,
+    OPIParticipantId STRING,
+    OPIParticipantCd STRING,
+    OPIAirportCd2 STRING,
+    RTGAirportCd1 STRING,
+    RTGCarrierCd1 STRING,
+    RTGAirportCd2 STRING,
+    RTGCarrierCd2 STRING,
+    RTGAirportCd3 STRING,
+    RTGCarrierCd3 STRING,
+    FWBMsgID INT,
+    FWBMsgValid INT,
+    RCSMsgValid INT,
+    AWBRemarks STRING,
+    SanctionedStatus INT,
+    RejectedDate TIMESTAMP,
+    RejectedBy STRING,
+    EUStatus STRING,
+    EUDescription STRING,
+    EUCreatedDate TIMESTAMP
+)
+""")
+# ------------------- Table: Exp_MasterAccept -------------------
+table_name = "Exp_MasterAccept"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    iid INT NOT NULL,
+    MID INT NOT NULL,
+    orgPcs INT,
+    remPcs INT,
+    rcvPcs INT NOT NULL,
+    TransId STRING,
+    isHold STRING NOT NULL,
+    memo STRING,
+    Createdby STRING,
+    CreatedDate TIMESTAMP NOT NULL,
+    VerifyAgt STRING
+)
+""")
+
+# ------------------- Table: Exp_TransInfo -------------------
+table_name = "Exp_TransInfo"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    iid INT NOT NULL,
+    TransId STRING NOT NULL,
+    Lcode STRING NOT NULL,
+    Trucking STRING NOT NULL,
+    Trucker STRING NOT NULL,
+    IdType1st STRING,
+    IdNo1st STRING,
+    IdImg1st STRING,
+    IdType2nd STRING,
+    IdNo2nd STRING,
+    IdImg2nd STRING,
+    STANumYN STRING NOT NULL,
+    STANumber STRING,
+    dockno STRING,
+    CreatedDate TIMESTAMP NOT NULL,
+    CreatedBy STRING NOT NULL,
+    AccStatus STRING,
+    AccAgent STRING,
+    VerifyDriverID1 STRING,
+    VerifyDriverID2 STRING,
+    version INT,
+    AccStartTime TIMESTAMP,
+    DatacaptureTotal DECIMAL(18,2),
+    ESCTotal DECIMAL(18,2),
+    MiscTotal DECIMAL(18,2),
+    TotalAmount DECIMAL(18,2),
+    PayNote STRING,
+    VTID STRING,
+    DriverPhoneNo STRING,
+    VehicleUpdate INT,
+    ProcessTime TIMESTAMP
+)
+""")
+
+# ------------------- Table: Exp_TransInfoDetail -------------------
+table_name = "Exp_TransInfoDetail"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    iid INT NOT NULL,
+    TransId STRING NOT NULL,
+    Mid INT NOT NULL,
+    Fid INT,
+    FlightNo STRING,
+    FlightDate TIMESTAMP,
+    Ftype STRING,
+    ActualToScreenPCs INT,
+    CreatedDate TIMESTAMP NOT NULL,
+    CreatedBy STRING NOT NULL,
+    version INT,
+    AccStartTime TIMESTAMP,
+    WHAccepted INT,
+    TTNLastSentTime TIMESTAMP
+)
+""")
+
+# ------------------- Table: flightTB -------------------
+table_name = "flightTB"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    idnum INT NOT NULL,
+    Lcode STRING,
+    Ccode STRING,
+    flightno STRING,
+    sort STRING,
+    ftype STRING,
+    fstatus INT,
+    OriginCd STRING,
+    DestCd STRING,
+    Bstats INT,
+    Truck INT,
+    CreatedDate TIMESTAMP,
+    ModifiedDate TIMESTAMP,
+    ModifiedBy STRING,
+    CreatedBy STRING,
+    AutoFFM INT
+)
+""")
