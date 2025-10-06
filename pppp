@@ -1,0 +1,1245 @@
+TableName	ColumnName	DataType	Nullability	PrimaryKey	ForeignKey	ReferencedTable	ReferencedColumn
+BCL_ExceptionLog	SeqNo	int	Not Null	SeqNo			
+BCL_ExceptionLog	FlightSeq	int	Not Null				
+BCL_ExceptionLog	ULD	varchar(20)	Not Null				
+BCL_ExceptionLog	MID	int	Null				
+BCL_ExceptionLog	HID	int	Null				
+BCL_ExceptionLog	MPart	char(1)	Null				
+BCL_ExceptionLog	MasterCodeID	int	Not Null				
+BCL_ExceptionLog	Reference	varchar(255)	Null				
+BCL_ExceptionLog	DerivedFromType	tinyint	Not Null				
+BCL_ExceptionLog	CreatedBy	varchar(50)	Not Null				
+BCL_ExceptionLog	CreatedDate	datetime	Not Null				
+BCL_ExceptionLog	BDIRRXmlSent	char(1)	Null				
+BCL_ExceptionLog	XmlLogID	int	Null				
+BCL_ExceptionLog	Status	int	Null				
+BCL_ExceptionLog	ModifiedDate	datetime	Null				
+BCL_ExceptionLog	Lcode	varchar(10)	Null				
+BCL_ExceptionLog	Pcs	int	Null				
+BCL_Info	BCL_InfoId	int	Not Null	BCL_InfoId			
+BCL_Info	BCL_PriorityId	int	Null				
+BCL_Info	FlightSeq	varchar(10)	Not Null				
+BCL_Info	ULD	varchar(20)	Not Null				
+BCL_Info	Lcode	varchar(50)	Null				
+BCL_Info	BreakDown	char(1)	Not Null				
+BCL_Info	Manager	varchar(20)	Null				
+BCL_Info	BDAgent	varchar(20)	Null				
+BCL_Info	WHAgent	varchar(20)	Null				
+BCL_Info	StartDate	varchar(20)	Null				
+BCL_Info	StartTime	varchar(20)	Null				
+BCL_Info	EndDate	varchar(20)	Null				
+BCL_Info	EndTime	varchar(20)	Null				
+BCL_Info	CreatedBy	varchar(20)	Not Null				
+BCL_Info	CreateDate	datetime	Not Null				
+BCL_Info	Status	tinyint	Null				
+BCL_Info	CompletedTime	datetime	Null				
+BCL_Info	CompletedBy	varchar(50)	Null				
+BCL_Item	BCL_ItemId	int	Not Null	BCL_ItemId			
+BCL_Item	BCL_InfoId	int	Not Null				
+BCL_Item	BD	char(1)	Null				
+BCL_Item	MID	int	Null				
+BCL_Item	Mpart	char(1)	Null				
+BCL_Item	HID	int	Null				
+BCL_Item	BCL_PriorityDetailId	int	Null				
+BCL_Item	Remarks	text	Null				
+BCL_Item	CreatedBy	varchar(20)	Not Null				
+BCL_Item	CreateDate	datetime	Not Null				
+BCL_Item	RCFSent	char(1)	Null				
+BCL_Item	RCFSentDate	datetime	Null				
+BCL_Item	RCFSentAgent	varchar(20)	Null				
+BCL_Item	WHConfirm	char(1)	Null				
+BCL_Item	WHcfTime	datetime	Null				
+BCL_Item	BCL_Status	int	Null				
+BCL_ItemLocation	BCL_ItemLocationId	int	Not Null	BCL_ItemLocationId	BCL_ItemLocationId	BCL_ItemLocation	BCL_ItemLocationId
+BCL_ItemLocation	BCL_ItemId	int	Not Null				
+BCL_ItemLocation	Pieces	int	Not Null				
+BCL_ItemLocation	Location	varchar(50)	Not Null				
+BCL_ItemLocation	WHConfirm	char(1)	Null				
+BCL_ItemLocation	WHcfTime	datetime	Null				
+BCL_ItemLocation	DlvPieces	int	Null				
+BCL_ItemLocation	InputType	char(3)	Null				
+BCL_ItemLocation	CreatedBy	varchar(20)	Not Null				
+BCL_ItemLocation	CreateDate	datetime	Not Null				
+BCL_ItemLocation	LOCXmlSent	char(1)	Null				
+BCL_ItemLocation	XmlLogID	int	Null				
+BCL_ItemLocation	DLVXmlSent	char(1)	Null				
+BCL_ItemLocation	DLVXmlLogID	int	Null				
+BCL_ItemLocation	DlvAgent	varchar(50)	Null				
+BCL_ItemLocation	DlvLogSeq	int	Null				
+BI_design	num	int	Not Null				
+BI_design	Ccode	varchar(50)	Null				
+BI_design	Bcode	varchar(50)	Null				
+billing	bpID	int	Not Null	bpID			
+billing	fltDate	datetime	Null				
+billing	Lcode	varchar(50)	Null				
+billing	Ccode	varchar(50)	Not Null	Ccode			
+billing	flightno	varchar(50)	Null				
+billing	ftype	varchar(50)	Null				
+billing	fdescr	varchar(100)	Null				
+billing	totalAWB	int	Null				
+billing	revAWB	int	Null				
+billing	LooseTon	money	Null				
+billing	LooseTon_k	money	Null				
+billing	BUPTon	money	Null				
+billing	BUPTon_k	money	Null				
+billing	totalTon	money	Null				
+billing	totalTon_k	money	Null				
+billing	MDP	money	Null				
+billing	LD7	money	Null				
+billing	LD3	money	Null				
+billing	LD2	money	Null				
+billing	LD8	money	Null				
+billing	totalBUP	money	Null				
+billing	impMail	money	Null				
+billing	impMail_k	money	Null				
+billing	tmode	varchar(50)	Null				
+billing	note	text	Null				
+billing	SagtCode	varchar(50)	Null				
+billing	Agtcode	varchar(50)	Null				
+billing	ttime	datetime	Null				
+billing	tstatus	varchar(50)	Null				
+billing	note2	text	Null				
+billing	cancel	char(1)	Null				
+billing	CasRefNo	int	Null				
+bp_Billitem	idnum	int	Not Null	idnum			
+bp_Billitem	bpID	int	Null				
+bp_Billitem	Ccode	varchar(50)	Null				
+bp_Billitem	Bcode	varchar(50)	Null				
+bp_Billitem	qty	money	Null				
+bp_Billitem	kilo	money	Null				
+bp_Billitem	price	money	Null				
+bp_Billitem	stotal	money	Null				
+CC_Billitem	TransId	varchar(50)	Not Null				
+CC_Billitem	cashtbid	int	Null				
+CC_Billitem	Bcode	varchar(50)	Null				
+CC_Billitem	qty	decimal(9,2)	Null				
+CC_Billitem	price	money	Null				
+CC_Billitem	stotal	money	Null				
+CC_Billitem	ePicPay	money	Null				
+CC_Billitem	WAmount	money	Null				
+CC_Billitem	WReason	varchar(255)	Null				
+CC_Billitem	Wreason_Desc	varchar(255)	Null				
+CC_Billitem	WAgent	varchar(50)	Null				
+CC_Billitem	Balance	money	Null				
+CC_Billitem	cartid	int	Null				
+CC_Billitem	mid	int	Null				
+CC_Billitem	Mpart	char(1)	Null				
+CC_Billitem	hid	int	Null				
+CC_Billitem	SSDate	varchar(50)	Null				
+CC_Billitem	TotalWeight	decimal(10,2)	Null				
+CC_Billitem	ePicPayItemID	varchar(250)	Null				
+CC_Billitem	OCID	varchar(50)	Null				
+CC_Billitem	idnum	int	Not Null	idnum			
+CC_Billitem	ePicCharged	money	Null				
+CC_Billitem	ePicBalance	money	Null				
+CC_Billitem	comat	int	Null				
+CC_cashTB	idnum	int	Not Null	idnum			
+CC_cashTB	TransId	varchar(50)	Null				
+CC_cashTB	Barcode	char(18)	Null				
+CC_cashTB	MID	int	Null				
+CC_cashTB	MPart	char(1)	Null				
+CC_cashTB	FID	int	Null				
+CC_cashTB	HID	int	Null				
+CC_cashTB	HPart	char(1)	Null				
+CC_cashTB	tmode	varchar(10)	Null				
+CC_cashTB	Lcode	varchar(50)	Null				
+CC_cashTB	Ccode	varchar(50)	Null				
+CC_cashTB	flightno	varchar(50)	Null				
+CC_cashTB	scac	varchar(10)	Null				
+CC_cashTB	awb	varchar(20)	Null				
+CC_cashTB	hbl	varchar(50)	Null				
+CC_cashTB	partial	varchar(10)	Null				
+CC_cashTB	comat	int	Null				
+CC_cashTB	pcs	int	Null				
+CC_cashTB	weight	money	Null				
+CC_cashTB	arvdate	datetime	Null				
+CC_cashTB	ssdate	datetime	Null				
+CC_cashTB	pkdate	datetime	Null				
+CC_cashTB	ISCchg	money	Null				
+CC_cashTB	storagetotal	money	Null				
+CC_cashTB	storagerate	money	Null				
+CC_cashTB	dos	int	Null				
+CC_cashTB	miniamt	money	Null				
+CC_cashTB	prepaid	money	Null				
+CC_cashTB	tPrice	money	Null				
+CC_cashTB	Loc_note	text	Null				
+CC_cashTB	note	text	Null				
+CC_cashTB	Aagtcode	varchar(50)	Null				
+CC_cashTB	Areason	varchar(255)	Null				
+CC_cashTB	AreasonDesc	text	Null				
+CC_cashTB	Aamount	money	Null				
+CC_cashTB	dlvstatus	varchar(10)	Null				
+CC_cashTB	WHconfirm	char(1)	Null				
+CC_cashTB	WHCFTime	datetime	Null				
+CC_cashTB	exception	char(1)	Null				
+CC_cashTB	Aitem	varchar(50)	Null				
+CC_cashTB	PayReceiptXmlsent	char(1)	Null				
+CC_cashTB	PayXmlsent	char(1)	Null				
+CC_cashTB	XmlLogID	int	Null				
+CC_cashTB	WHagent	varchar(50)	Null				
+CC_cashTB	TotalDiscPcs	int	Null				
+CC_cashTB	Commodity	varchar(50)	Null				
+CC_cashTB	ResultCd	char(1)	Null				
+CC_cashTB	FlightSeq	int	Null				
+CC_cashTB	DlvStartTime	datetime	Null				
+CC_cashTB	WHDelivered	int	Null				
+CC_cashTB	TTNLastSentTime	datetime	Null				
+CC_cashTB	Reprocess	int	Null				
+CC_cashTB	Reset	int	Null				
+CC_TransInfo	TransId	varchar(50)	Not Null	TransId			
+CC_TransInfo	Lcode	varchar(50)	Null				
+CC_TransInfo	Ccode	varchar(50)	Null				
+CC_TransInfo	ScanID	varchar(10)	Null				
+CC_TransInfo	tmode	varchar(20)	Null				
+CC_TransInfo	trucking	varchar(50)	Null				
+CC_TransInfo	trucker	varchar(50)	Null				
+CC_TransInfo	trucker2	varchar(50)	Null				
+CC_TransInfo	idtype	varchar(20)	Null				
+CC_TransInfo	idtype2	varchar(20)	Null				
+CC_TransInfo	tidnum	varchar(50)	Null				
+CC_TransInfo	tidnum2	varchar(50)	Null				
+CC_TransInfo	dockno	varchar(50)	Null				
+CC_TransInfo	tPrice	money	Null				
+CC_TransInfo	paynote	text	Null				
+CC_TransInfo	ttime	datetime	Null				
+CC_TransInfo	Pagtcode	varchar(50)	Null				
+CC_TransInfo	tprepaid	money	Null				
+CC_TransInfo	tAamount	money	Null				
+CC_TransInfo	tstatus	varchar(10)	Null				
+CC_TransInfo	ISCTotal	money	Null				
+CC_TransInfo	StorageTotal	money	Null				
+CC_TransInfo	MiscTotal	money	Null				
+CC_TransInfo	SurChargeTotal	money	Null				
+CC_TransInfo	dstatus	char(1)	Null				
+CC_TransInfo	dAgent	varchar(50)	Null				
+CC_TransInfo	dtime	datetime	Null				
+CC_TransInfo	Seq	int	Not Null				
+CC_TransInfo	PayXmlsent	char(1)	Null				
+CC_TransInfo	PayReceiptXmlsent	char(1)	Null				
+CC_TransInfo	XmlLogID	int	Null				
+CC_TransInfo	DAXmlsent	char(1)	Null				
+CC_TransInfo	DAXmlLogID	int	Null				
+CC_TransInfo	FilePath	varchar(500)	Null				
+CC_TransInfo	FilePath2	varchar(500)	Null				
+CC_TransInfo	isApplied	char(1)	Null				
+CC_TransInfo	version	int	Null				
+CC_TransInfo	DlvStartTime	datetime	Null				
+CC_TransInfo	VTID	varchar(32)	Null				
+CC_TransInfo	DriverPhoneNo	varchar(15)	Null				
+CC_TransInfo	VehicleUpdate	int	Null				
+CC_TransInfo	BookingID	varchar(50)	Null				
+CC_TransInfo	Reprocess	int	Null				
+Customer	idnum	int	Not Null	idnum			
+Customer	Acode	varchar(10)	Null				
+Customer	GPnum	varchar(50)	Null				
+Customer	Ccode	varchar(50)	Null				
+Customer	cname	varchar(200)	Null				
+Customer	scac	varchar(10)	Null				
+Customer	scac2	varchar(10)	Null				
+Customer	CompId	varchar(10)	Null				
+Customer	Lcode	varchar(50)	Null				
+Customer	email	varchar(100)	Null				
+Customer	sagent	varchar(100)	Null				
+Customer	discash	varchar(10)	Null				
+Customer	credit	varchar(10)	Null				
+Customer	PFcode	varchar(50)	Null				
+Customer	wunit	varchar(10)	Null				
+Customer	astatus	int	Null				
+Customer	defcust	int	Null				
+Customer	Message	int	Null				
+Customer	AMS	int	Null				
+Customer	Giveback	int	Null				
+Customer	eFreight	int	Not Null				
+Customer	CPIDate	datetime	Null				
+Customer	TermDate	datetime	Null				
+Customer	PCcode	varchar(50)	Null				
+Customer	BLStartDate	datetime	Null				
+Customer	Carrier	char(4)	Null				
+Customer	Carrier2	char(4)	Null				
+Customer	SectorCode	varchar(10)	Null				
+Customer	Ccard	varchar(2)	Null				
+Customer	CCPayable	int	Null				
+Customer	Payable	int	Not Null				
+Customer	Tracking	int	Not Null				
+Customer	Certificate	int	Not Null				
+Customer	PayTo	varchar(50)	Null				
+Customer	ContactNo	varchar(50)	Null				
+Customer	CollectChg	varchar(2)	Null				
+Customer	MReview	int	Not Null				
+Customer	FirmsCode	varchar(10)	Null				
+Customer	ContractNo	varchar(100)	Null				
+Customer	CreatedDate	datetime	Null				
+Customer	BillCcode	varchar(50)	Null				
+Customer	ShipCcode	varchar(50)	Null				
+Customer	CustomerNo	varchar(50)	Null				
+Customer	BillCcode_Old	varchar(50)	Null				
+Customer	ShipCcode_Old	varchar(50)	Null				
+Customer	CustomerNo_Old	varchar(50)	Null				
+Customer	BillTo	varchar(6)	Null				
+Customer	ShipTo	varchar(6)	Null				
+Customer	SoldTo	varchar(6)	Null				
+Customer	eScreenInsertCondition	int	Null				
+Customer	eScreenStartDate	datetime	Null				
+Customer	SAPname	varchar(50)	Null				
+Customer	BillingStatus	int	Null				
+Customer	LegacyCompID	varchar(10)	Null				
+Customer	FFMDecimal	int	Null				
+Customer	SHC	int	Null				
+Customer	FOH	char(1)	Null				
+Customer	Number_DP	int	Null				
+Customer	FWB_Logic	int	Null				
+Customer	RemoveDiscrepancies	int	Null				
+Customer	EU_Logic	int	Null				
+Customer	RCSonFWB	int	Null				
+Customer	RemoveDimsonFWB	int	Null				
+Customer	RCSManual	char(1)	Null				
+Customer	SendEHC	int	Null				
+Customer	AddLbsToPalletTag	int	Null				
+Customer	PartialStorage	int	Null				
+Customer	AddNetTareWeightToPalletTag	int	Null				
+Customer	VolumeCode	varchar(5)	Null				
+Customer	MiscDetail	int	Not Null				
+EDI_Msg	idnum	int	Not Null	idnum			
+EDI_Msg	queueId	int	Not Null				
+EDI_Msg	Carrier	char(2)	Not Null				
+EDI_Msg	Lcode	varchar(10)	Not Null				
+EDI_Msg	Ccode	varchar(20)	Not Null				
+EDI_Msg	MID	int	Null				
+EDI_Msg	FlightSeq	int	Null				
+EDI_Msg	FlightNo	varchar(10)	Null				
+EDI_Msg	MsgAddress	varchar(710)	Not Null				
+EDI_Msg	MsgVersion	int	Null				
+EDI_Msg	MsgType	char(10)	Not Null				
+EDI_Msg	subMsgType	varchar(10)	Null				
+EDI_Msg	MsgBody	text	Null				
+EDI_Msg	Remark	text	Null				
+EDI_Msg	SendDate	datetime	Null				
+EDI_Msg	SendBy	varchar(50)	Null				
+EDI_Msg	ResendDate	datetime	Null				
+EDI_Msg	ResendBy	varchar(20)	Null				
+EDI_Msg	ResendYN	char(1)	Null				
+EDI_Msg_Queue	iid	int	Not Null	iid			
+EDI_Msg_Queue	MsgType	varchar(10)	Not Null				
+EDI_Msg_Queue	subMsgType	varchar(10)	Null				
+EDI_Msg_Queue	Carrier	char(2)	Not Null				
+EDI_Msg_Queue	Lcode	varchar(50)	Not Null				
+EDI_Msg_Queue	Ccode	varchar(50)	Not Null				
+EDI_Msg_Queue	MID	int	Null				
+EDI_Msg_Queue	HID	int	Null				
+EDI_Msg_Queue	RefID	int	Null				
+EDI_Msg_Queue	FlightSeq	numeric(9,0)	Null				
+EDI_Msg_Queue	FlightNo	varchar(10)	Null				
+EDI_Msg_Queue	Status	char(1)	Not Null				
+EDI_Msg_Queue	ResendYN	char(1)	Null				
+EDI_Msg_Queue	ErrorMsg	varchar(255)	Null				
+EDI_Msg_Queue	Createdby	varchar(50)	Null				
+EDI_Msg_Queue	CreatedDate	datetime	Not Null				
+EDI_Msg_Queue	DlvLogSeq	int	Null				
+EDI_Msg_Queue	AnSeq	int	Null				
+EDI_Msg_Queue	tmode	char(1)	Null				
+EDI_Msg_Queue	EDIAddressBook	int	Null				
+EDI_Msg_Queue	CustomerId	varchar(50)	Null				
+EDI_Msg_Queue	MsgBody_SITAfreeMSG	text	Null				
+EDI_Msg_Queue	MsgAddress_SITAfreeMSG	varchar(710)	Null				
+EDI_Msg_Queue	RTFInputType	char(1)	Null				
+EDI_Msg_Queue	SentDate	datetime	Null				
+ePic_CamDetail	fileID	int	Not Null	fileID			
+ePic_CamDetail	infoId	int	Not Null				
+ePic_CamDetail	fName	varchar(100)	Not Null				
+ePic_CamDetail	fSize	numeric(12,0)	Null				
+ePic_CamDetail	fSeq	int	Null				
+ePic_CamDetail	fPath	varchar(MAX)	Null				
+ePic_CamDetail	CamAgt	varchar(50)	Not Null				
+ePic_CamDetail	CamTime	datetime	Not Null				
+ePic_CamInfo	idnum	int	Not Null	idnum			
+ePic_CamInfo	Ttype	tinyint	Not Null				
+ePic_CamInfo	MID	int	Null				
+ePic_CamInfo	MPart	char(1)	Null				
+ePic_CamInfo	HID	int	Null				
+ePic_CamInfo	CashTbId	int	Null				
+ePic_CamInfo	ULDId	int	Null				
+ePic_CamInfo	ULD	varchar(50)	Null				
+ePic_CamInfo	FlightSeq	numeric(9,0)	Null				
+ePic_CamInfo	ReqAgt	varchar(50)	Not Null				
+ePic_CamInfo	ReqTime	datetime	Not Null				
+ePic_CamInfo	Lcode	varchar(50)	Null				
+ePic_CamInfo	Ccode	varchar(50)	Null				
+ePic_CamInfo	Prefix	char(3)	Null				
+ePic_CamInfo	AWB	char(8)	Null				
+ePic_CamInfo	Category	varchar(50)	Null				
+ePic_CamInfo	Complete	char(1)	Null				
+ePic_CamInfo	CamAgt	varchar(50)	Null				
+ePic_CamInfo	CamTime	datetime	Null				
+ePic_CamInfo	Type	char(1)	Null				
+ePic_DLV_Log	Seq	int	Not Null	Seq			
+ePic_DLV_Log	CashTBId	int	Null				
+ePic_DLV_Log	TransId	varchar(50)	Null				
+ePic_DLV_Log	MID	int	Null				
+ePic_DLV_Log	HID	int	Null				
+ePic_DLV_Log	MPart	varchar(2)	Null				
+ePic_DLV_Log	ResultCd	int	Null				
+ePic_DLV_Log	Pcs	int	Null				
+ePic_DLV_Log	TotalPcs	int	Null				
+ePic_DLV_Log	ActionName	varchar(20)	Null				
+ePic_DLV_Log	CodeName	varchar(10)	Null				
+ePic_DLV_Log	ExceptionDesc	varchar(250)	Null				
+ePic_DLV_Log	CreatedBy	varchar(50)	Null				
+ePic_DLV_Log	CreatedDate	datetime	Null				
+ePic_DLV_Log	DLVXmlSent	char(1)	Null				
+ePic_DLV_Log	DLVXmlLogId	int	Null				
+ePic_DLV_Log	Mode	varchar(10)	Null				
+ePic_DLV_Log	Lcode	varchar(20)	Null				
+ePic_DLV_Log	VTID	varchar(50)	Null				
+ePic_DLV_Log	VerifyAgt	varchar(50)	Null				
+ePic_DLV_Log	Reprocess	int	Null				
+ePic_FIW_Time	idnum	int	Not Null	idnum			
+ePic_FIW_Time	ULD	varchar(50)	Not Null				
+ePic_FIW_Time	FlightSeq	int	Not Null				
+ePic_FIW_Time	FIWDate	datetime	Null				
+ePic_FlightMaster	FID	int	Not Null	FID			
+ePic_FlightMaster	MID	int	Not Null				
+ePic_FlightMaster	MPart	char(1)	Null				
+ePic_FlightMaster	Origin	varchar(10)	Null				
+ePic_FlightMaster	FinalDest	varchar(50)	Null				
+ePic_FlightMaster	FlightDate	datetime	Null				
+ePic_FlightMaster	ArrivalDate	datetime	Not Null				
+ePic_FlightMaster	AirlineCode	char(3)	Null				
+ePic_FlightMaster	AWB	char(8)	Null				
+ePic_FlightMaster	FlightNo	varchar(10)	Not Null				
+ePic_FlightMaster	ULD	varchar(50)	Null				
+ePic_FlightMaster	OnPCS	int	Not Null				
+ePic_FlightMaster	OnWeight	money	Not Null				
+ePic_FlightMaster	Partial	char(1)	Not Null				
+ePic_FlightMaster	Lcode	varchar(10)	Null				
+ePic_FlightMaster	Ccode	varchar(50)	Null				
+ePic_FlightMaster	FlightSeq	numeric(9,0)	Null				
+ePic_FlightMaster	FSeqFlag	int	Null				
+ePic_FlightMaster	Registration	varchar(30)	Null				
+ePic_FlightMaster	PayStatus	char(1)	Null				
+ePic_FlightMaster	DlvStatus	char(1)	Null				
+ePic_FlightMaster	DlvDate	datetime	Null				
+ePic_FlightMaster	StatusCode	char(5)	Null				
+ePic_FlightMaster	MsgToCust	varchar(255)	Null				
+ePic_FlightMaster	CreateDate	datetime	Not Null				
+ePic_FlightMaster	CreatedBy	varchar(50)	Null				
+ePic_FlightMaster	MsgID	numeric(18,0)	Null				
+ePic_FlightMaster	Inputtype	char(1)	Null				
+ePic_FlightMaster	ModifiedDate	datetime	Null				
+ePic_FlightMaster	ModifiedBy	varchar(50)	Null				
+ePic_FlightMaster	VolAmt	numeric(10,2)	Null				
+ePic_House2	MID	int	Not Null				
+ePic_House2	HID	int	Not Null	HID			
+ePic_House2	Prefix	char(3)	Null				
+ePic_House2	AWB	char(8)	Null				
+ePic_House2	HAWB	varchar(50)	Not Null				
+ePic_House2	PCS	int	Not Null				
+ePic_House2	Weight	money	Not Null				
+ePic_House2	Shipper	varchar(50)	Null				
+ePic_House2	CNEE	varchar(50)	Null				
+ePic_House2	CneStreet	varchar(50)	Null				
+ePic_House2	CnePlace	varchar(50)	Null				
+ePic_House2	CneState	varchar(50)	Null				
+ePic_House2	CnePostal	varchar(50)	Null				
+ePic_House2	CneCont	varchar(50)	Null				
+ePic_House2	Agent	varchar(50)	Null				
+ePic_House2	Commodity	varchar(50)	Null				
+ePic_House2	PayStatus	char(1)	Null				
+ePic_House2	DlvStatus	char(1)	Null				
+ePic_House2	CBPStatus	char(1)	Null				
+ePic_House2	InputType	char(1)	Null				
+ePic_House2	CreateDate	datetime	Not Null				
+ePic_House2	CreatedBy	varchar(50)	Null				
+ePic_House2	MsgID	numeric(18,0)	Null				
+ePic_House2	Origin	varchar(3)	Null				
+ePic_House2	Dest	varchar(3)	Null				
+ePic_House2	SHC	varchar(20)	Null				
+ePic_House2	TXT	varchar(250)	Null				
+ePic_House2	ShpStreet	varchar(255)	Null				
+ePic_House2	ShpPlace	varchar(100)	Null				
+ePic_House2	ShpState	varchar(50)	Null				
+ePic_House2	ShpPostal	varchar(50)	Null				
+ePic_House2	ShpCont	varchar(5)	Null				
+ePic_House2	FWBMID	int	Null				
+ePic_House2	ModifiedDate	datetime	Null				
+ePic_House2	ModifiedBy	varchar(50)	Null				
+ePic_House2	SHC2	varchar(3)	Null				
+ePic_House2	SHC3	varchar(3)	Null				
+ePic_House2	SHC4	varchar(3)	Null				
+ePic_House2	SHC5	varchar(3)	Null				
+ePic_House2	SHC6	varchar(3)	Null				
+ePic_House2	SHC7	varchar(3)	Null				
+ePic_House2	SHC8	varchar(3)	Null				
+ePic_House2	SHC9	varchar(3)	Null				
+ePic_Master2	MID	int	Not Null	MID			
+ePic_Master2	Prefix	char(3)	Not Null				
+ePic_Master2	AWB	char(8)	Not Null				
+ePic_Master2	ULD	varchar(50)	Null				
+ePic_Master2	PCS	int	Not Null				
+ePic_Master2	Weight	numeric(10,2)	Not Null				
+ePic_Master2	Shipper	varchar(50)	Null				
+ePic_Master2	ShpStreet	varchar(255)	Null				
+ePic_Master2	ShpPlace	varchar(100)	Null				
+ePic_Master2	ShpState	varchar(50)	Null				
+ePic_Master2	ShpPostal	varchar(50)	Null				
+ePic_Master2	ShpCont	varchar(5)	Null				
+ePic_Master2	Lcode	varchar(50)	Null				
+ePic_Master2	OriginPortCd	char(3)	Null				
+ePic_Master2	Cnee	varchar(80)	Null				
+ePic_Master2	CneStreet	varchar(255)	Null				
+ePic_Master2	CnePlace	varchar(100)	Null				
+ePic_Master2	CneState	varchar(50)	Null				
+ePic_Master2	CnePostal	varchar(50)	Null				
+ePic_Master2	CneCont	varchar(5)	Null				
+ePic_Master2	DestinationPortCd	char(3)	Null				
+ePic_Master2	Agent	varchar(50)	Null				
+ePic_Master2	Ng	varchar(50)	Null				
+ePic_Master2	Nc	varchar(50)	Null				
+ePic_Master2	Commodity	varchar(50)	Null				
+ePic_Master2	FirmsCode	varchar(10)	Null				
+ePic_Master2	Payable	char(1)	Null				
+ePic_Master2	PayStatus	char(1)	Null				
+ePic_Master2	DlvStatus	char(1)	Null				
+ePic_Master2	CBPStatus	char(1)	Null				
+ePic_Master2	TransferTo	varchar(50)	Null				
+ePic_Master2	TransferDate	datetime	Null				
+ePic_Master2	InputType	char(1)	Null				
+ePic_Master2	CreateDate	datetime	Not Null				
+ePic_Master2	MsgID	numeric(18,0)	Null				
+ePic_Master2	Ccode	varchar(50)	Null				
+ePic_Master2	CneeCode	varchar(50)	Null				
+ePic_Master2	CneeCode1	varchar(50)	Null				
+ePic_Master2	WHTransfer	char(1)	Null				
+ePic_Master2	CarrierCertPrint	datetime	Null				
+ePic_Master2	SHC	char(6)	Null				
+ePic_Master2	SHC2	char(6)	Null				
+ePic_Master2	SHC3	char(6)	Null				
+ePic_Master2	SHC4	char(6)	Null				
+ePic_Master2	SHC5	char(6)	Null				
+ePic_Master2	CVD	varchar(50)	Null				
+ePic_Master2	COL	varchar(50)	Null				
+ePic_Master2	OTH	varchar(100)	Null				
+ePic_Master2	OSI	varchar(200)	Null				
+ePic_Master2	NFCneeCode	varchar(50)	Null				
+ePic_Master2	ModifiedDate	datetime	Null				
+ePic_Master2	SHC6	varchar(6)	Null				
+ePic_Master2	SHC7	varchar(6)	Null				
+ePic_Master2	SHC8	varchar(6)	Null				
+ePic_Master2	SHC9	varchar(6)	Null				
+ePic_Master2	IsCopied	int	Null				
+ePic_Master2	AgentABCode	varchar(50)	Null				
+ePic_Master2	AgentCode	varchar(20)	Null				
+ePic_Master2	AgentCassAddr	varchar(4)	Null				
+ePic_Master2	AgentPartId	varchar(3)	Null				
+ePic_Master2	AgentName	varchar(35)	Null				
+ePic_Master2	AgentAddr	varchar(100)	Null				
+ePic_Master2	AgentAddr2	varchar(50)	Null				
+ePic_Master2	AgentCity	varchar(50)	Null				
+ePic_Master2	AgentState	varchar(17)	Null				
+ePic_Master2	AgentCountry	varchar(2)	Null				
+ePic_Master2	AgentZipcode	varchar(50)	Null				
+ePic_Master2	AgentAcode	varchar(14)	Null				
+ePic_Master2	AgentIsCass	varchar(4)	Null				
+ePic_Master2	AgentTel	varchar(50)	Null				
+ePic_Master2	NfyName	varchar(35)	Null				
+ePic_Master2	NfyAddr	varchar(300)	Null				
+ePic_Master2	NfyPlace	varchar(50)	Null				
+ePic_Master2	NfyState	varchar(9)	Null				
+ePic_Master2	NfyCountry	varchar(2)	Null				
+ePic_Master2	NfyZipcode	varchar(50)	Null				
+ePic_Master2	NfyContact	varchar(3)	Null				
+ePic_Master2	NfyTel	varchar(25)	Null				
+ePic_Master2	ModifiedBy	varchar(50)	Null				
+ePic_Master2	CreatedBy	varchar(50)	Null				
+ePic_Master2	OPIName	varchar(35)	Null				
+ePic_Master2	OPIAirportCd1	varchar(3)	Null				
+ePic_Master2	OPIFuncDesignator	varchar(2)	Null				
+ePic_Master2	OPICompDesignator	varchar(2)	Null				
+ePic_Master2	OPIFileRef	varchar(15)	Null				
+ePic_Master2	OPIParticipantId	varchar(3)	Null				
+ePic_Master2	OPIParticipantCd	varchar(17)	Null				
+ePic_Master2	OPIAirportCd2	varchar(3)	Null				
+ePic_Master2	RTGAirportCd1	varchar(3)	Null				
+ePic_Master2	RTGCarrierCd1	varchar(2)	Null				
+ePic_Master2	RTGAirportCd2	varchar(3)	Null				
+ePic_Master2	RTGCarrierCd2	varchar(2)	Null				
+ePic_Master2	RTGAirportCd3	varchar(3)	Null				
+ePic_Master2	RTGCarrierCd3	varchar(2)	Null				
+ePic_Master2	s_accountnum	nvarchar(28)	Null				
+ePic_Master2	a_accountnum	nvarchar(28)	Null				
+ePic_Master2	c_accountnum	nvarchar(28)	Null				
+ePic_Master2	FWBMsgID	numeric(18,0)	Null				
+ePic_Master2	ChargeableWeight	decimal(18,2)	Null				
+ePic_Master2	VolAmt	numeric(10,2)	Null				
+ePic_Master2	WTVAL	varchar(2)	Null				
+ePic_Master2	WTVAL2	varchar(1)	Null				
+ePic_Master2	WTVAL3	varchar(1)	Null				
+ePic_Master2	SanctionedStatus	int	Null				
+ePic_masterCode	code_Id	int	Not Null	code_Id			
+ePic_masterCode	codeCategory	varchar(20)	Not Null				
+ePic_masterCode	ApplName	varchar(50)	Null				
+ePic_masterCode	ModuleName	varchar(50)	Null				
+ePic_masterCode	codeName	varchar(50)	Not Null				
+ePic_masterCode	displayName	varchar(100)	Null				
+ePic_masterCode	codeRemark	varchar(100)	Null				
+ePic_masterCode	ActiveYN	char(1)	Not Null				
+ePic_masterCode	Mandatory	char(1)	Null				
+ePic_masterCode	CreatedDate	datetime	Not Null				
+ePic_masterCode	CreatedBy	varchar(50)	Null				
+ePic_masterCode	ModifiedDate	datetime	Null				
+ePic_masterCode	ModifiedBy	varchar(50)	Null				
+ePic_PayItem	ItemID	int	Not Null	ItemID			
+ePic_PayItem	PayInfoId	int	Null				
+ePic_PayItem	Barcode	char(13)	Null				
+ePic_PayItem	MID	int	Null				
+ePic_PayItem	MPart	char(1)	Null				
+ePic_PayItem	HID	int	Null				
+ePic_PayItem	HPart	char(1)	Null				
+ePic_PayItem	FID	int	Null				
+ePic_PayItem	Lcode	varchar(50)	Null				
+ePic_PayItem	Ccode	varchar(50)	Null				
+ePic_PayItem	PayItem	varchar(20)	Null				
+ePic_PayItem	qty	decimal(9,2)	Null				
+ePic_PayItem	Amount	money	Null				
+ePic_PayItem	PickupDate	datetime	Null				
+ePic_PayItem	StorageRate	money	Null				
+ePic_PayItem	StorageDays	int	Null				
+ePic_PayItem	StorageMin	money	Null				
+ePic_PayItem	Status	char(1)	Null				
+ePic_PayItem	CreateDate	datetime	Null				
+ePic_PayItem	ReferenceNo	varchar(50)	Null				
+ePic_PayItem	RefundID	int	Null				
+ePic_PayItem	CompId	varchar(10)	Null				
+ePic_PayItem	XmlSent	char(1)	Null				
+ePic_PayItem	XmlLogID	int	Null				
+ePic_PayItem	CheckInId	int	Null				
+ePic_PayItem	CCTransID	varchar(20)	Null				
+ePic_PayItem	Type	varchar(20)	Null				
+ePic_PayItem	LegacyCompID	varchar(10)	Null				
+ePic_RefundRequest	idnum	int	Not Null	idnum			
+ePic_RefundRequest	PayInfoId	int	Not Null				
+ePic_RefundRequest	ItemId	int	Not Null				
+ePic_RefundRequest	CustomerId	varchar(50)	Not Null				
+ePic_RefundRequest	UserId	varchar(100)	Not Null				
+ePic_RefundRequest	UserAmount	money	Not Null				
+ePic_RefundRequest	UserReason	text	Not Null				
+ePic_RefundRequest	UserRequestDate	datetime	Not Null				
+ePic_RefundRequest	AgtCode	varchar(50)	Null				
+ePic_RefundRequest	AgentAmount	money	Null				
+ePic_RefundRequest	AgentNote	text	Null				
+ePic_RefundRequest	AgentRequestDate	datetime	Null				
+ePic_RefundRequest	AccountAgtCode	varchar(50)	Null				
+ePic_RefundRequest	AccountAmount	money	Null				
+ePic_RefundRequest	AccountReason	text	Null				
+ePic_RefundRequest	AccountRequestDate	datetime	Null				
+ePic_RefundRequest	RefundId	int	Null				
+ePic_RefundRequest	Status	int	Not Null				
+ePic_RefundRequest	FreeAWB	int	Null				
+Exp_BuildupDetail	BDUID	int	Not Null	BDUID			
+Exp_BuildupDetail	ULDID	int	Null		ULDID	Exp_BuildupMaster	ULDID
+Exp_BuildupDetail	MID	int	Null				
+Exp_BuildupDetail	BUPC	int	Null				
+Exp_BuildupDetail	Weight	numeric(10,2)	Null				
+Exp_BuildupDetail	CreatedBy	varchar(50)	Null				
+Exp_BuildupDetail	CreatedDate	datetime	Null				
+Exp_BuildupDetail	ModifiedBy	varchar(50)	Null				
+Exp_BuildupDetail	ModifiedDate	datetime	Null				
+Exp_BuildupDetail	HasDG	int	Null				
+Exp_BuildupDetail	DG	varchar(200)	Null				
+Exp_BuildupDetail	ClassDivision	varchar(50)	Null				
+Exp_BuildupDetail	Group	varchar(5)	Null				
+Exp_BuildupDetail	Remarks	varchar(8000)	Null				
+Exp_BuildupMaster	ULDID	int	Not Null	ULDID			
+Exp_BuildupMaster	FlightSeq	int	Null				
+Exp_BuildupMaster	Lcode	varchar(10)	Null				
+Exp_BuildupMaster	UldPfx	varchar(3)	Null				
+Exp_BuildupMaster	UldMid	varchar(10)	Null				
+Exp_BuildupMaster	UldLst	varchar(2)	Null				
+Exp_BuildupMaster	Type	int	Null				
+Exp_BuildupMaster	DestCd	varchar(3)	Null				
+Exp_BuildupMaster	Weight	numeric(10,2)	Null				
+Exp_BuildupMaster	HeightType	int	Null				
+Exp_BuildupMaster	Height	numeric(10,2)	Null				
+Exp_BuildupMaster	Contour	int	Null				
+Exp_BuildupMaster	Overhang	int	Null				
+Exp_BuildupMaster	OverhangAfter	numeric(10,2)	Null				
+Exp_BuildupMaster	OverhangForward	numeric(10,2)	Null				
+Exp_BuildupMaster	OverhangLateralCenter	numeric(10,2)	Null				
+Exp_BuildupMaster	OverhangLateralAisle	numeric(10,2)	Null				
+Exp_BuildupMaster	Indent	int	Null				
+Exp_BuildupMaster	IndentAfter	numeric(10,2)	Null				
+Exp_BuildupMaster	IndentForward	numeric(10,2)	Null				
+Exp_BuildupMaster	IndentLateralCenter	numeric(10,2)	Null				
+Exp_BuildupMaster	IndentLateralAisle	numeric(10,2)	Null				
+Exp_BuildupMaster	Status	int	Null				
+Exp_BuildupMaster	BUNote	text	Null				
+Exp_BuildupMaster	CreatedBy	varchar(50)	Null				
+Exp_BuildupMaster	CreatedDate	datetime	Null				
+Exp_BuildupMaster	ModifiedBy	varchar(50)	Null				
+Exp_BuildupMaster	ModifiedDate	datetime	Null				
+Exp_BuildupMaster	TareWeight	numeric(10,2)	Null				
+Exp_BuildupMaster	SupWeight	numeric(10,2)	Null				
+Exp_BuildupMaster	InputWay	varchar(50)	Null				
+Exp_BuildupMaster	AutoScale	varchar(1)	Null				
+Exp_DimWt	DID	int	Not Null	DID			
+Exp_DimWt	MID	int	Not Null				
+Exp_DimWt	Part	char(1)	Null				
+Exp_DimWt	Prefix	char(3)	Not Null				
+Exp_DimWt	AWB	char(8)	Not Null				
+Exp_DimWt	Lenght	decimal(10,2)	Null				
+Exp_DimWt	Width	decimal(10,2)	Null				
+Exp_DimWt	Height	decimal(10,2)	Null				
+Exp_DimWt	Pcs	int	Not Null				
+Exp_DimWt	VolWeight	decimal(10,2)	Null				
+Exp_DimWt	PcsWeight	decimal(10,2)	Null				
+Exp_DimWt	unit	varchar(50)	Null				
+Exp_DimWt	CreatedDate	datetime	Not Null				
+Exp_DimWt	CreatedBy	varchar(50)	Null				
+Exp_DimWt	AutoScale	varchar(1)	Null				
+Exp_DimWt	SignSeq	int	Null				
+Exp_DimWt	TransId	varchar(20)	Null				
+Exp_DragSheet	Seq	int	Not Null	Seq			
+Exp_DragSheet	PrintSeq	int	Not Null				
+Exp_DragSheet	FlightSeq	int	Not Null				
+Exp_DragSheet	Lcode	varchar(10)	Null				
+Exp_DragSheet	ULDID	int	Null				
+Exp_DragSheet	ULDNo	varchar(50)	Null				
+Exp_DragSheet	DestCd	varchar(50)	Null				
+Exp_DragSheet	AWBCount	int	Null				
+Exp_DragSheet	Position	varchar(50)	Null				
+Exp_DragSheet	Weight	decimal(10,2)	Null				
+Exp_DragSheet	Height	varchar(100)	Null				
+Exp_DragSheet	OverhangContour	varchar(200)	Null				
+Exp_DragSheet	DG	varchar(2000)	Null				
+Exp_DragSheet	SHC	varchar(550)	Null				
+Exp_DragSheet	Remarks	text	Null				
+Exp_DragSheet	status	nvarchar(100)	Null				
+Exp_DragSheet	CreatedBy	varchar(50)	Null				
+Exp_DragSheet	CreatedDate	datetime	Null				
+Exp_FlightMaster	FID	int	Not Null	FID			
+Exp_FlightMaster	MID	int	Not Null				
+Exp_FlightMaster	Part	char(1)	Null				
+Exp_FlightMaster	Prefix	char(3)	Not Null				
+Exp_FlightMaster	AWB	char(8)	Not Null				
+Exp_FlightMaster	Acode	varchar(10)	Null				
+Exp_FlightMaster	FlightNo	varchar(10)	Not Null				
+Exp_FlightMaster	OriginCd	char(3)	Null				
+Exp_FlightMaster	DestCd	char(3)	Null				
+Exp_FlightMaster	FlightDate	datetime	Not Null				
+Exp_FlightMaster	aFlightDate	datetime	Null				
+Exp_FlightMaster	OnPCS	int	Null				
+Exp_FlightMaster	OnWeight	decimal(10,2)	Null				
+Exp_FlightMaster	ULD	char(20)	Null				
+Exp_FlightMaster	ULDID	int	Null				
+Exp_FlightMaster	Partial	char(1)	Null				
+Exp_FlightMaster	FlightSeq	int	Null				
+Exp_FlightMaster	Status	char(3)	Null				
+Exp_FlightMaster	CreatedDate	datetime	Not Null				
+Exp_FlightMaster	CreatedBy	varchar(50)	Null				
+Exp_FlightMaster	ModifiedDate	datetime	Null				
+Exp_FlightMaster	ModifiedBy	varchar(50)	Null				
+Exp_FlightMaster	ChangeFlight	varchar(3)	Null				
+Exp_FlightMaster	BookedFlightNo	varchar(10)	Null				
+Exp_FlightMaster	BookedFlightDate	datetime	Null				
+Exp_FlightMaster	BookedPOU	char(3)	Null				
+Exp_FlightMaster	BookedPC	int	Null				
+Exp_FlightMaster	BookedWgt	decimal(10,2)	Null				
+Exp_FlightMaster	BookedPartial	char(1)	Null				
+Exp_FlightMaster	BookedVolume	decimal(10,2)	Null				
+Exp_FlightMaster	MsgID	numeric(18,0)	Null				
+Exp_FlightMaster	Lcode	varchar(10)	Null				
+Exp_FlightMaster	Ccode	varchar(20)	Null				
+Exp_FlightMaster	InputType	char(1)	Null				
+Exp_FlightMaster	AWBStatus	char(1)	Null				
+Exp_FlightMaster	ScreenFtype	varchar(50)	Null				
+Exp_FlightMaster	ReScreen	varchar(50)	Null				
+Exp_FlightMaster	FRTRScreenFtype	varchar(50)	Null				
+Exp_FlightSeq	FlightId	int	Not Null	FlightId			
+Exp_FlightSeq	Lcode	varchar(10)	Not Null				
+Exp_FlightSeq	Acode	varchar(10)	Not Null				
+Exp_FlightSeq	FlightNo	varchar(10)	Not Null				
+Exp_FlightSeq	FlightDate	datetime	Not Null				
+Exp_FlightSeq	FlightNote	text	Null				
+Exp_FlightSeq	ArrivalDate	datetime	Null				
+Exp_FlightSeq	Origin	char(3)	Not Null				
+Exp_FlightSeq	Destination	char(3)	Not Null				
+Exp_FlightSeq	NFMSentDate	datetime	Null				
+Exp_FlightSeq	FFMSentDate	datetime	Null				
+Exp_FlightSeq	ActualDepDate	datetime	Null				
+Exp_FlightSeq	ActualArrDate	datetime	Null				
+Exp_FlightSeq	EstDepDate	datetime	Null				
+Exp_FlightSeq	EstArrDate	datetime	Null				
+Exp_FlightSeq	DayChange	char(1)	Null				
+Exp_FlightSeq	MainMaxPcs	tinyint	Null				
+Exp_FlightSeq	LowerMaxPcs	tinyint	Null				
+Exp_FlightSeq	Ld3MaxPcs	tinyint	Null				
+Exp_FlightSeq	Status	tinyint	Null				
+Exp_FlightSeq	CreatedDate	datetime	Not Null				
+Exp_FlightSeq	CreatedBy	varchar(50)	Null				
+Exp_FlightSeq	LastModifiedDate	datetime	Null				
+Exp_FlightSeq	LastModifiedBy	varchar(50)	Null				
+Exp_FlightSeq	UWSSentDate	datetime	Null				
+Exp_FlightSeq	Module	varchar(50)	Null				
+Exp_FlightSeq	SecurityReviewedBy	varchar(50)	Null				
+Exp_FlightSeq	SecurityReviewedDate	datetime	Null				
+Exp_House	HID	int	Not Null	HID			
+Exp_House	MID	int	Not Null				
+Exp_House	Prefix	char(3)	Not Null				
+Exp_House	AWB	char(8)	Not Null				
+Exp_House	HAWB	varchar(50)	Not Null				
+Exp_House	Pcs	int	Not Null				
+Exp_House	SLAC	int	Null				
+Exp_House	Weight	decimal(10,2)	Not Null				
+Exp_House	Dest	varchar(3)	Null				
+Exp_House	Origin	varchar(3)	Null				
+Exp_House	CustomerId	varchar(50)	Null				
+Exp_House	Shipper	varchar(50)	Null				
+Exp_House	ShipperCode	varchar(50)	Null				
+Exp_House	ShpAddr	varchar(255)	Null				
+Exp_House	ShpAddr2	varchar(255)	Null				
+Exp_House	ShpAddrCity	varchar(50)	Null				
+Exp_House	ShpAddrState	varchar(50)	Null				
+Exp_House	ShpAddrZipcode	varchar(5)	Null				
+Exp_House	ShpAddrCountry	varchar(2)	Null				
+Exp_House	ShpContact	varchar(5)	Null				
+Exp_House	ShpAddrTel	varchar(50)	Null				
+Exp_House	Cnee	varchar(50)	Null				
+Exp_House	CneeCode	varchar(50)	Null				
+Exp_House	CneeAddr	varchar(255)	Null				
+Exp_House	CneeAddr2	varchar(255)	Null				
+Exp_House	CneeAddrCity	varchar(50)	Null				
+Exp_House	CneeAddrProvince	varchar(50)	Null				
+Exp_House	CneeAddrZipcode	varchar(20)	Null				
+Exp_House	CneeAddrCountry	varchar(50)	Null				
+Exp_House	CneeContact	varchar(50)	Null				
+Exp_House	CneeAddrTel	varchar(50)	Null				
+Exp_House	Commodity	varchar(50)	Null				
+Exp_House	SHC	varchar(3)	Null				
+Exp_House	SHC2	varchar(3)	Null				
+Exp_House	SHC3	varchar(3)	Null				
+Exp_House	SHC4	varchar(3)	Null				
+Exp_House	SHC5	varchar(3)	Null				
+Exp_House	SHC6	varchar(3)	Null				
+Exp_House	SHC7	varchar(3)	Null				
+Exp_House	SHC8	varchar(3)	Null				
+Exp_House	SHC9	varchar(3)	Null				
+Exp_House	AES	varchar(50)	Null				
+Exp_House	CreatedDate	datetime	Not Null				
+Exp_House	CreatedBy	varchar(50)	Null				
+Exp_House	ModifiedDate	datetime	Null				
+Exp_House	ModifiedBy	varchar(50)	Null				
+Exp_House	Currency	varchar(50)	Null				
+Exp_House	WTVAL	varchar(50)	Null				
+Exp_House	WTVAL2	varchar(50)	Null				
+Exp_House	WTVAL3	varchar(50)	Null				
+Exp_House	DVCarriage	decimal(10,2)	Null				
+Exp_House	DVCustoms	decimal(10,2)	Null				
+Exp_House	Insurance	decimal(10,2)	Null				
+Exp_House	FWBMID	int	Null				
+Exp_House	MSGID	int	Null				
+Exp_House	FHLMsgValid	int	Null				
+Exp_House	SendFHLDate	datetime	Null				
+Exp_House	SendFHLBy	varchar(50)	Null				
+Exp_Master	MID	int	Not Null	MID			
+Exp_Master	TransId	varchar(15)	Null				
+Exp_Master	ShipType	varchar(10)	Not Null				
+Exp_Master	Prefix	char(3)	Not Null				
+Exp_Master	AWB	char(8)	Not Null				
+Exp_Master	PCS	int	Null				
+Exp_Master	Weight	decimal(16,3)	Null				
+Exp_Master	CWeight	decimal(16,3)	Null				
+Exp_Master	ChgWeight	decimal(16,3)	Null				
+Exp_Master	CustomerId	varchar(50)	Null				
+Exp_Master	Shipper	varchar(50)	Null				
+Exp_Master	ShipperCode	varchar(50)	Null				
+Exp_Master	ShipperContact	varchar(3)	Null				
+Exp_Master	ShipperTel	varchar(50)	Null				
+Exp_Master	ShpAddr	varchar(300)	Null				
+Exp_Master	ShpAddr2	varchar(300)	Null				
+Exp_Master	ShpAddrCity	varchar(100)	Null				
+Exp_Master	ShpAddrState	varchar(9)	Null				
+Exp_Master	ShpAddrZipcode	varchar(10)	Null				
+Exp_Master	ShpAddrCountry	varchar(2)	Null				
+Exp_Master	Cnee	varchar(50)	Null				
+Exp_Master	CneeCode	varchar(50)	Null				
+Exp_Master	CneeTel	varchar(50)	Null				
+Exp_Master	CneeAddr	varchar(300)	Null				
+Exp_Master	CneeAddr2	varchar(300)	Null				
+Exp_Master	CneeAddrCity	varchar(300)	Null				
+Exp_Master	CneeAddrProvince	varchar(50)	Null				
+Exp_Master	CneeAddrCountry	varchar(50)	Null				
+Exp_Master	CneeAddrZipcode	varchar(20)	Null				
+Exp_Master	Agent	varchar(11)	Null				
+Exp_Master	AgentABCode	varchar(50)	Null				
+Exp_Master	AgentCode	varchar(7)	Null				
+Exp_Master	AgentCassAddr	varchar(4)	Null				
+Exp_Master	AgentPartId	varchar(3)	Null				
+Exp_Master	AgentName	varchar(100)	Null				
+Exp_Master	AgentAddr	varchar(100)	Null				
+Exp_Master	AgentAddr2	varchar(50)	Null				
+Exp_Master	AgentCity	varchar(50)	Null				
+Exp_Master	AgentState	varchar(15)	Null				
+Exp_Master	AgentCountry	varchar(2)	Null				
+Exp_Master	AgentZipcode	varchar(50)	Null				
+Exp_Master	AgentAcode	varchar(14)	Null				
+Exp_Master	AgentIsCass	varchar(1)	Null				
+Exp_Master	AgentTel	varchar(50)	Null				
+Exp_Master	Lcode	varchar(10)	Not Null				
+Exp_Master	Ccode	varchar(20)	Null				
+Exp_Master	OriginCd	char(3)	Null				
+Exp_Master	DestCd	char(3)	Null				
+Exp_Master	AwbPOU	char(3)	Null				
+Exp_Master	Commodity	varchar(50)	Null				
+Exp_Master	BUPct	int	Null				
+Exp_Master	SHC	char(6)	Null				
+Exp_Master	SHC2	char(6)	Null				
+Exp_Master	SHC3	varchar(6)	Null				
+Exp_Master	SHC4	varchar(6)	Null				
+Exp_Master	SHC5	varchar(6)	Null				
+Exp_Master	SHCNote	varchar(500)	Null				
+Exp_Master	Status	char(1)	Null				
+Exp_Master	Worker	varchar(50)	Null				
+Exp_Master	InputType	char(1)	Null				
+Exp_Master	PrintedTally	datetime	Null				
+Exp_Master	PrintedBy	varchar(50)	Null				
+Exp_Master	HasDoc	char(1)	Not Null				
+Exp_Master	IsContactShipper	char(1)	Null				
+Exp_Master	Priority	varchar(10)	Not Null				
+Exp_Master	AWBNote	varchar(500)	Null				
+Exp_Master	BuildUpNote	varchar(500)	Null				
+Exp_Master	DG	varchar(200)	Null				
+Exp_Master	ClassDivision	varchar(50)	Null				
+Exp_Master	ITNNo	varchar(25)	Null				
+Exp_Master	IACnum	varchar(25)	Null				
+Exp_Master	IACValid	char(1)	Null				
+Exp_Master	Currency	varchar(50)	Null				
+Exp_Master	WTVAL	varchar(50)	Null				
+Exp_Master	WTVAL2	varchar(50)	Null				
+Exp_Master	WTVAL3	varchar(50)	Null				
+Exp_Master	DVCarriage	decimal(10,2)	Null				
+Exp_Master	DVCustoms	decimal(10,2)	Null				
+Exp_Master	Insurance	decimal(10,2)	Null				
+Exp_Master	SendFWBDate	datetime	Null				
+Exp_Master	SendFWBBy	varchar(50)	Null				
+Exp_Master	AccptComplete	char(1)	Not Null				
+Exp_Master	CreatedDate	datetime	Not Null				
+Exp_Master	CreatedBy	varchar(50)	Not Null				
+Exp_Master	ProcessedDate	datetime	Null				
+Exp_Master	ProcessedBy	varchar(50)	Null				
+Exp_Master	ModifiedDate	datetime	Null				
+Exp_Master	ModifiedBy	varchar(50)	Null				
+Exp_Master	BookedPC	int	Null				
+Exp_Master	BookedWgt	decimal(10,2)	Null				
+Exp_Master	BookedChgWeight	decimal(10,2)	Null				
+Exp_Master	BookedDate	datetime	Null				
+Exp_Master	HasDG	int	Null				
+Exp_Master	FBL	int	Null				
+Exp_Master	CheckInId	int	Null				
+Exp_Master	CCSFnum	varchar(25)	Null				
+Exp_Master	CCSFValid	char(1)	Null				
+Exp_Master	IsCopied	int	Null				
+Exp_Master	CneeContact	varchar(3)	Null				
+Exp_Master	AgentAccountNum	nvarchar(28)	Null				
+Exp_Master	MsgID	int	Null				
+Exp_Master	SHC6	varchar(6)	Null				
+Exp_Master	SHC7	varchar(6)	Null				
+Exp_Master	SHC8	varchar(6)	Null				
+Exp_Master	SHC9	varchar(6)	Null				
+Exp_Master	NfyName	varchar(35)	Null				
+Exp_Master	NfyAddr	varchar(300)	Null				
+Exp_Master	NfyPlace	varchar(50)	Null				
+Exp_Master	NfyState	varchar(9)	Null				
+Exp_Master	NfyCountry	varchar(2)	Null				
+Exp_Master	NfyZipcode	varchar(50)	Null				
+Exp_Master	NfyContact	varchar(3)	Null				
+Exp_Master	NfyTel	varchar(25)	Null				
+Exp_Master	PPDTotalWeight	numeric(10,2)	Null				
+Exp_Master	PPDValuation	numeric(10,2)	Null				
+Exp_Master	PPDTaxes	numeric(10,2)	Null				
+Exp_Master	PPDDueAgent	numeric(10,2)	Null				
+Exp_Master	PPDDueCarrier	numeric(10,2)	Null				
+Exp_Master	PPDTotal	numeric(10,2)	Null				
+Exp_Master	COLTotalWeight	numeric(10,2)	Null				
+Exp_Master	COLValuation	numeric(10,2)	Null				
+Exp_Master	COLTaxes	numeric(10,2)	Null				
+Exp_Master	COLDueAgent	numeric(10,2)	Null				
+Exp_Master	COLDueCarrier	numeric(10,2)	Null				
+Exp_Master	COLTotal	numeric(10,2)	Null				
+Exp_Master	OPIName	varchar(35)	Null				
+Exp_Master	OPIAirportCd1	varchar(3)	Null				
+Exp_Master	OPIFuncDesignator	varchar(2)	Null				
+Exp_Master	OPICompDesignator	varchar(2)	Null				
+Exp_Master	OPIFileRef	varchar(15)	Null				
+Exp_Master	OPIParticipantId	varchar(3)	Null				
+Exp_Master	OPIParticipantCd	varchar(17)	Null				
+Exp_Master	OPIAirportCd2	varchar(3)	Null				
+Exp_Master	RTGAirportCd1	varchar(3)	Null				
+Exp_Master	RTGCarrierCd1	varchar(2)	Null				
+Exp_Master	RTGAirportCd2	varchar(3)	Null				
+Exp_Master	RTGCarrierCd2	varchar(2)	Null				
+Exp_Master	RTGAirportCd3	varchar(3)	Null				
+Exp_Master	RTGCarrierCd3	varchar(2)	Null				
+Exp_Master	FWBMsgID	int	Null				
+Exp_Master	FWBMsgValid	int	Null				
+Exp_Master	RCSMsgValid	int	Null				
+Exp_Master	AWBRemarks	varchar(800)	Null				
+Exp_Master	SanctionedStatus	int	Null				
+Exp_Master	RejectedDate	datetime	Null				
+Exp_Master	RejectedBy	varchar(50)	Null				
+Exp_Master	EUStatus	varchar(2)	Null				
+Exp_Master	EUDescription	varchar(MAX)	Null				
+Exp_Master	EUCreatedDate	datetime	Null				
+Exp_MasterAccept	iid	int	Not Null	iid			
+Exp_MasterAccept	MID	int	Not Null				
+Exp_MasterAccept	orgPcs	int	Null				
+Exp_MasterAccept	remPcs	int	Null				
+Exp_MasterAccept	rcvPcs	int	Not Null				
+Exp_MasterAccept	TransId	varchar(15)	Null				
+Exp_MasterAccept	isHold	char(1)	Not Null				
+Exp_MasterAccept	memo	varchar(255)	Null				
+Exp_MasterAccept	Createdby	varchar(50)	Null				
+Exp_MasterAccept	CreatedDate	datetime	Not Null				
+Exp_MasterAccept	VerifyAgt	varchar(50)	Null				
+Exp_TransInfo	iid	int	Not Null	iid			
+Exp_TransInfo	TransId	varchar(15)	Not Null				
+Exp_TransInfo	Lcode	varchar(10)	Not Null				
+Exp_TransInfo	Trucking	varchar(50)	Not Null				
+Exp_TransInfo	Trucker	varchar(50)	Not Null				
+Exp_TransInfo	IdType1st	varchar(20)	Null				
+Exp_TransInfo	IdNo1st	varchar(30)	Null				
+Exp_TransInfo	IdImg1st	varchar(100)	Null				
+Exp_TransInfo	IdType2nd	varchar(20)	Null				
+Exp_TransInfo	IdNo2nd	varchar(30)	Null				
+Exp_TransInfo	IdImg2nd	varchar(100)	Null				
+Exp_TransInfo	STANumYN	char(1)	Not Null				
+Exp_TransInfo	STANumber	varchar(30)	Null				
+Exp_TransInfo	dockno	varchar(10)	Null				
+Exp_TransInfo	CreatedDate	datetime	Not Null				
+Exp_TransInfo	CreatedBy	varchar(50)	Not Null				
+Exp_TransInfo	AccStatus	varchar(1)	Null				
+Exp_TransInfo	AccAgent	varchar(50)	Null				
+Exp_TransInfo	VerifyDriverID1	char(1)	Null				
+Exp_TransInfo	VerifyDriverID2	char(1)	Null				
+Exp_TransInfo	version	int	Null				
+Exp_TransInfo	AccStartTime	datetime	Null				
+Exp_TransInfo	DatacaptureTotal	money	Null				
+Exp_TransInfo	ESCTotal	money	Null				
+Exp_TransInfo	MiscTotal	money	Null				
+Exp_TransInfo	TotalAmount	money	Null				
+Exp_TransInfo	PayNote	text	Null				
+Exp_TransInfo	VTID	varchar(32)	Null				
+Exp_TransInfo	DriverPhoneNo	varchar(15)	Null				
+Exp_TransInfo	VehicleUpdate	int	Null				
+Exp_TransInfo	ProcessTime	datetime	Null				
+Exp_TransInfoDetail	iid	int	Not Null	iid			
+Exp_TransInfoDetail	TransId	varchar(15)	Not Null				
+Exp_TransInfoDetail	Mid	int	Not Null				
+Exp_TransInfoDetail	Fid	int	Null				
+Exp_TransInfoDetail	FlightNo	varchar(10)	Null				
+Exp_TransInfoDetail	FlightDate	datetime	Null				
+Exp_TransInfoDetail	Ftype	varchar(50)	Null				
+Exp_TransInfoDetail	ActualToScreenPCs	int	Null				
+Exp_TransInfoDetail	CreatedDate	datetime	Not Null				
+Exp_TransInfoDetail	CreatedBy	varchar(50)	Not Null				
+Exp_TransInfoDetail	version	int	Null				
+Exp_TransInfoDetail	AccStartTime	datetime	Null				
+Exp_TransInfoDetail	WHAccepted	int	Null				
+Exp_TransInfoDetail	TTNLastSentTime	datetime	Null				
+flightTB	idnum	int	Not Null	idnum			
+flightTB	Lcode	varchar(50)	Null				
+flightTB	Ccode	varchar(50)	Null				
+flightTB	flightno	varchar(15)	Null				
+flightTB	sort	varchar(10)	Null				
+flightTB	ftype	varchar(50)	Null				
+flightTB	fstatus	int	Null				
+flightTB	OriginCd	char(3)	Null				
+flightTB	DestCd	char(3)	Null				
+flightTB	Bstats	int	Null				
+flightTB	Truck	int	Null				
+flightTB	CreatedDate	datetime	Null				
+flightTB	ModifiedDate	datetime	Null				
+flightTB	ModifiedBy	varchar(50)	Null				
+flightTB	CreatedBy	varchar(50)	Null				
+flightTB	AutoFFM	int	Null				
+Imp_FlightSeq	idnum	int	Not Null	idnum			
+Imp_FlightSeq	FlightNo	varchar(10)	Not Null				
+Imp_FlightSeq	Sort	varchar(10)	Null				
+Imp_FlightSeq	FType	varchar(10)	Null				
+Imp_FlightSeq	Aircraft	varchar(10)	Null				
+Imp_FlightSeq	InputType	char(1)	Null				
+Imp_FlightSeq	FSeqFlag	int	Null				
+Imp_FlightSeq	CreatedBy	varchar(50)	Not Null				
+Imp_FlightSeq	CreatedDate	datetime	Not Null				
+Imp_FlightSeqDetail	idnum	int	Not Null	idnum			
+Imp_FlightSeqDetail	FlightSeq	int	Not Null				
+Imp_FlightSeqDetail	Leg	int	Not Null				
+Imp_FlightSeqDetail	Lcode	varchar(10)	Not Null				
+Imp_FlightSeqDetail	Ccode	varchar(30)	Not Null				
+Imp_FlightSeqDetail	Origin	varchar(10)	Not Null				
+Imp_FlightSeqDetail	Dest	varchar(10)	Not Null				
+Imp_FlightSeqDetail	FlightDate	datetime	Not Null				
+Imp_FlightSeqDetail	ArrivalDate	datetime	Not Null				
+Imp_FlightSeqDetail	CreatedBy	varchar(50)	Not Null				
+Imp_FlightSeqDetail	CreatedDate	datetime	Not Null				
+imp_FlightStats	iid	int	Not Null	iid			
+imp_FlightStats	Ccode	varchar(50)	Not Null				
+imp_FlightStats	FlightNo	varchar(10)	Not Null				
+imp_FlightStats	ArrivalDate	datetime	Not Null				
+imp_FlightStats	FlightSeq	numeric(18,0)	Not Null				
+imp_FlightStats	ArrFltYN	char(1)	Null				
+imp_FlightStats	ArrFltDate	datetime	Null				
+imp_FlightStats	ArrCargoYN	char(1)	Null				
+imp_FlightStats	ArrCargoDate	datetime	Null				
+imp_FlightStats	DocAvailYN	char(1)	Null				
+imp_FlightStats	DocAvailDate	datetime	Null				
+imp_FlightStats	FinalBDYN	char(1)	Null				
+imp_FlightStats	FinalBDDate	datetime	Null				
+imp_FlightStats	CreatedBy	varchar(50)	Null				
+imp_FlightStats	CreatedDate	datetime	Not Null				
+imp_FlightStats	GenerateXML	char(1)	Null				
+Location	idnum	int	Not Null	idnum			
+Location	CompId	varchar(50)	Null				
+Location	Acode	varchar(50)	Null				
+Location	bldgnum	varchar(50)	Null				
+Location	Lcode	varchar(50)	Null				
+Location	Laddy	varchar(255)	Null				
+Location	tzone	int	Null				
+Location	GPGLcode	varchar(50)	Null				
+Location	GPdescr	varchar(255)	Null				
+Location	PXcode	varchar(50)	Null				
+Location	Active	int	Null				
+Location	Rcode	varchar(50)	Null				
+Location	MDNAactive	int	Null				
+Location	State	varchar(50)	Null				
+Location	ePicDeployed	int	Null				
+Location	ePicStartdate	datetime	Null				
+Location	AppActive	int	Null				
+Location	showtoweb	int	Null				
+Location	LocationGroup	int	Null				
+Location	LocHide	int	Null				
+Location	LocHidedate	datetime	Null				
+Location	ContactNo	varchar(50)	Null				
+Location	Isolate	int	Null				
+Location	AcctLcode	varchar(50)	Null				
+Location	ReleaseIAC	int	Null				
+Location	ReleaseCCSF	int	Null				
+Location	Application	int	Null				
+Location	Type	varchar(50)	Null				
+Location	IDPrint	int	Null				
+Location	CreatedBy	varchar(50)	Null				
+Location	CreatedDate	datetime	Null				
+Location	eScreenActive	int	Null				
+Location	NewVersion	int	Null				
+Location	SAPLcode	varchar(9)	Null				
+Location	SAPdescr	varchar(50)	Null				
+Location	SAPLcodeN	varchar(9)	Null				
+Location	SAPdescrN	varchar(50)	Null				
+Location	SAPLcode_Old	varchar(9)	Null				
+Location	SAPdescr_Old	varchar(50)	Null				
+Location	SAPHierarchy	varchar(10)	Null				
+Location	LegacyCompID	varchar(10)	Null				
+Location	eScreenVersion	int	Null				
+Location	AutoScale	int	Null				
+Location	DockListShowingTime	int	Null				
+Location	CC_Comat	int	Null				
+Location	SubLocation	varchar(1)	Null				
+Location	IsDockInOutEnable	bit	Null				
+Location	AutoDimYN	varchar(2)	Null				
+Location	ImportContact	varchar(50)	Null				
+Location	ExportContact	varchar(50)	Null				
+Location	Carriers	varchar(80)	Null				
+Location	DGCheckEnable	varchar(1)	Null				
+Location	NewPWReset	int	Null				
+Location	ASRS	varchar(1)	Null				
+Location	ReDimWeight	varchar(1)	Null				
+Location	ACC_DLV_Verify	int	Null				
+Location	DGCheckAgent	int	Null				
+Location	IsHold	int	Null				
+PostInfo	postid	int	Not Null	postid			
+PostInfo	CompId	varchar(10)	Null				
+PostInfo	Lcode	varchar(50)	Null				
+PostInfo	RptTotal	money	Null				
+PostInfo	ActTotal	money	Null				
+PostInfo	ISCTotal	money	Null				
+PostInfo	StorageTotal	money	Null				
+PostInfo	MiscTotal	money	Null				
+PostInfo	ExpTotal	money	Null				
+PostInfo	ICSTotal	money	Null				
+PostInfo	SurchargeTotal	money	Null				
+PostInfo	CashTotal	money	Null				
+PostInfo	CheckTotal	money	Null				
+PostInfo	nochk	int	Null				
+PostInfo	CouponTotal	money	Null				
+PostInfo	nocpn	int	Null				
+PostInfo	postdate	datetime	Null				
+PostInfo	poststart	datetime	Null				
+PostInfo	postend	datetime	Null				
+PostInfo	prepby	varchar(50)	Null				
+PostInfo	JEmo	int	Null				
+PostInfo	JEyr	int	Null				
+PostInfo	BankCode	varchar(50)	Null				
+PostInfo	PayType	varchar(50)	Null				
+PostInfo	Deposit	int	Null				
+PostInfo	depositInTransit	varchar(3)	Null				
+PostInfo	DataCapTotal	money	Null				
+PostInfo	LegacyCompID	varchar(10)	Null				
+TX_cashTB	idnum	int	Not Null	idnum			
+TX_cashTB	TransId	varchar(50)	Null				
+TX_cashTB	Barcode	char(18)	Null				
+TX_cashTB	MID	int	Null				
+TX_cashTB	MPart	char(1)	Null				
+TX_cashTB	tmode	varchar(10)	Null				
+TX_cashTB	Lcode	varchar(50)	Null				
+TX_cashTB	Ccode	varchar(50)	Null				
+TX_cashTB	flightno	varchar(50)	Null				
+TX_cashTB	Prefix	varchar(10)	Null				
+TX_cashTB	AWB	varchar(20)	Null				
+TX_cashTB	noHAWB	int	Null				
+TX_cashTB	pcs	int	Null				
+TX_cashTB	weight	money	Null				
+TX_cashTB	arvdate	datetime	Null				
+TX_cashTB	Loc_note	text	Null				
+TX_cashTB	note	text	Null				
+TX_cashTB	dlvstatus	varchar(10)	Null				
+TX_cashTB	WHconfirm	char(1)	Null				
+TX_cashTB	WHCFTime	datetime	Null				
+TX_cashTB	WHagent	varchar(50)	Null				
+TX_cashTB	Xmlsent	char(1)	Null				
+TX_cashTB	XmlLogID	int	Null				
+TX_cashTB	TotalDiscPcs	int	Null				
+TX_cashTB	OrgPort	varchar(50)	Null				
+TX_cashTB	FltDest	varchar(50)	Null				
+TX_cashTB	DestPort	varchar(50)	Null				
+TX_cashTB	DestLcode	varchar(50)	Null				
+TX_cashTB	DlvStartTime	datetime	Null				
+TX_cashTB	WHDelivered	int	Null				
+TX_cashTB	TTNLastSentTime	datetime	Null				
+TX_TransInfo	Seq	int	Not Null				
+TX_TransInfo	TransId	varchar(50)	Not Null	TransId			
+TX_TransInfo	ScanID	varchar(10)	Null				
+TX_TransInfo	tmode	varchar(20)	Null				
+TX_TransInfo	trucking	varchar(50)	Null				
+TX_TransInfo	trucker	varchar(50)	Null				
+TX_TransInfo	idtype	varchar(20)	Null				
+TX_TransInfo	tidnum	varchar(50)	Null				
+TX_TransInfo	dockno	varchar(50)	Null				
+TX_TransInfo	TXnote	text	Null				
+TX_TransInfo	ttime	datetime	Null				
+TX_TransInfo	Pagtcode	varchar(50)	Null				
+TX_TransInfo	dstatus	char(1)	Null				
+TX_TransInfo	dAgent	varchar(50)	Null				
+TX_TransInfo	dtime	datetime	Null				
+TX_TransInfo	Xmlsent	char(1)	Null				
+TX_TransInfo	XmlLogID	int	Null				
+TX_TransInfo	DAXmlsent	char(1)	Null				
+TX_TransInfo	DAXmlLogID	int	Null				
+TX_TransInfo	OrgLcode	varchar(50)	Null				
+TX_TransInfo	FilePath	varchar(250)	Null				
+TX_TransInfo	trucker2	varchar(50)	Null				
+TX_TransInfo	idtype2	varchar(20)	Null				
+TX_TransInfo	tidnum2	varchar(50)	Null				
+TX_TransInfo	FilePath2	varchar(50)	Null				
+TX_TransInfo	version	int	Null				
+TX_TransInfo	DlvStartTime	datetime	Null				
+TX_TransInfo	VTID	varchar(32)	Null				
+TX_TransInfo	DriverPhoneNo	varchar(15)	Null				
+TX_TransInfo	VehicleUpdate	int	Null				
