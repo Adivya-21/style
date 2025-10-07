@@ -1284,3 +1284,233 @@ CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
     AutoFFM INT
 )
 """)
+
+
+
+# ------------------- Table: Imp_FlightSeqDetail -------------------
+db_name = "my_database"
+table_name = "Imp_FlightSeqDetail"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    idnum INT NOT NULL,
+    FlightSeq INT NOT NULL,
+    Leg INT NOT NULL,
+    Lcode STRING NOT NULL,
+    Ccode STRING NOT NULL,
+    Origin STRING NOT NULL,
+    Dest STRING NOT NULL,
+    FlightDate TIMESTAMP NOT NULL,
+    ArrivalDate TIMESTAMP NOT NULL,
+    CreatedBy STRING NOT NULL,
+    CreatedDate TIMESTAMP NOT NULL
+)
+""")
+
+# ------------------- Table: imp_FlightStats -------------------
+db_name = "my_database"
+table_name = "imp_FlightStats"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    iid INT NOT NULL,
+    Ccode STRING NOT NULL,
+    FlightNo STRING NOT NULL,
+    ArrivalDate TIMESTAMP NOT NULL,
+    FlightSeq DECIMAL(18,0) NOT NULL,
+    ArrFltYN STRING,
+    ArrFltDate TIMESTAMP,
+    ArrCargoYN STRING,
+    ArrCargoDate TIMESTAMP,
+    DocAvailYN STRING,
+    DocAvailDate TIMESTAMP,
+    FinalBDYN STRING,
+    FinalBDDate TIMESTAMP,
+    CreatedBy STRING,
+    CreatedDate TIMESTAMP NOT NULL,
+    GenerateXML STRING
+)
+""")
+
+# ------------------- Table: Location -------------------
+db_name = "my_database"
+table_name = "Location"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    idnum INT NOT NULL,
+    CompId STRING,
+    Acode STRING,
+    bldgnum STRING,
+    Lcode STRING,
+    Laddy STRING,
+    tzone INT,
+    GPGLcode STRING,
+    GPdescr STRING,
+    PXcode STRING,
+    Active INT,
+    Rcode STRING,
+    MDNAactive INT,
+    State STRING,
+    ePicDeployed INT,
+    ePicStartdate TIMESTAMP,
+    AppActive INT,
+    showtoweb INT,
+    LocationGroup INT,
+    LocHide INT,
+    LocHidedate TIMESTAMP,
+    ContactNo STRING,
+    Isolate INT,
+    AcctLcode STRING,
+    ReleaseIAC INT,
+    ReleaseCCSF INT,
+    Application INT,
+    Type STRING,
+    IDPrint INT,
+    CreatedBy STRING,
+    CreatedDate TIMESTAMP,
+    eScreenActive INT,
+    NewVersion INT,
+    SAPLcode STRING,
+    SAPdescr STRING,
+    SAPLcodeN STRING,
+    SAPdescrN STRING,
+    SAPLcode_Old STRING,
+    SAPdescr_Old STRING,
+    SAPHierarchy STRING,
+    LegacyCompID STRING,
+    eScreenVersion INT,
+    AutoScale INT,
+    DockListShowingTime INT,
+    CC_Comat INT,
+    SubLocation STRING,
+    IsDockInOutEnable BOOLEAN,
+    AutoDimYN STRING,
+    ImportContact STRING,
+    ExportContact STRING,
+    Carriers STRING,
+    DGCheckEnable STRING,
+    NewPWReset INT,
+    ASRS STRING,
+    ReDimWeight STRING,
+    ACC_DLV_Verify INT,
+    DGCheckAgent INT,
+    IsHold INT
+)
+""")
+
+# ------------------- Table: PostInfo -------------------
+db_name = "my_database"
+table_name = "PostInfo"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    postid INT NOT NULL,
+    CompId STRING,
+    Lcode STRING,
+    RptTotal DECIMAL(16,2),
+    ActTotal DECIMAL(16,2),
+    ISCTotal DECIMAL(16,2),
+    StorageTotal DECIMAL(16,2),
+    MiscTotal DECIMAL(16,2),
+    ExpTotal DECIMAL(16,2),
+    ICSTotal DECIMAL(16,2),
+    SurchargeTotal DECIMAL(16,2),
+    CashTotal DECIMAL(16,2),
+    CheckTotal DECIMAL(16,2),
+    nochk INT,
+    CouponTotal DECIMAL(16,2),
+    nocpn INT,
+    postdate TIMESTAMP,
+    poststart TIMESTAMP,
+    postend TIMESTAMP,
+    prepby STRING,
+    JEmo INT,
+    JEyr INT,
+    BankCode STRING,
+    PayType STRING,
+    Deposit INT,
+    depositInTransit STRING,
+    DataCapTotal DECIMAL(16,2),
+    LegacyCompID STRING
+)
+""")
+
+# ------------------- Table: TX_cashTB -------------------
+db_name = "my_database"
+table_name = "TX_cashTB"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    idnum INT NOT NULL,
+    TransId STRING,
+    Barcode STRING,
+    MID INT,
+    MPart STRING,
+    tmode STRING,
+    Lcode STRING,
+    Ccode STRING,
+    flightno STRING,
+    Prefix STRING,
+    AWB STRING,
+    noHAWB INT,
+    pcs INT,
+    weight DECIMAL(16,2),
+    arvdate TIMESTAMP,
+    Loc_note STRING,
+    note STRING,
+    dlvstatus STRING,
+    WHconfirm STRING,
+    WHCFTime TIMESTAMP,
+    WHagent STRING,
+    Xmlsent STRING,
+    XmlLogID INT,
+    TotalDiscPcs INT,
+    OrgPort STRING,
+    FltDest STRING,
+    DestPort STRING,
+    DestLcode STRING,
+    DlvStartTime TIMESTAMP,
+    WHDelivered INT,
+    TTNLastSentTime TIMESTAMP
+)
+""")
+
+# ------------------- Table: TX_TransInfo -------------------
+db_name = "my_database"
+table_name = "TX_TransInfo"
+
+spark.sql(f"""
+CREATE TABLE IF NOT EXISTS {db_name}.{table_name} (
+    Seq INT NOT NULL,
+    TransId STRING NOT NULL,
+    ScanID STRING,
+    tmode STRING,
+    trucking STRING,
+    trucker STRING,
+    idtype STRING,
+    tidnum STRING,
+    dockno STRING,
+    TXnote STRING,
+    ttime TIMESTAMP,
+    Pagtcode STRING,
+    dstatus STRING,
+    dAgent STRING,
+    dtime TIMESTAMP,
+    Xmlsent STRING,
+    XmlLogID INT,
+    DAXmlsent STRING,
+    DAXmlLogID INT,
+    OrgLcode STRING,
+    FilePath STRING,
+    trucker2 STRING,
+    idtype2 STRING,
+    tidnum2 STRING,
+    FilePath2 STRING,
+    version INT,
+    DlvStartTime TIMESTAMP,
+    VTID STRING,
+    DriverPhoneNo STRING,
+    VehicleUpdate INT
+)
+""")
